@@ -10,6 +10,7 @@ author                      : Yimin Zhong  # The author of the book
 copyright                   : "2023"  # Copyright year to be placed in the footer
 logo                        : logo.png  # A path to the book logo
 
+
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
