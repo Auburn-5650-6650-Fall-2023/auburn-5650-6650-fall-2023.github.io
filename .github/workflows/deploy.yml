@@ -1,4 +1,4 @@
-name: deploy
+name: deploy-book
 
 on:
   # Trigger the workflow on push to main branch
