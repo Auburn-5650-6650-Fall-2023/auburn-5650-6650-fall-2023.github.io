@@ -6,7 +6,7 @@ root: intro
 options:  # The options key will be applied to all chapters, but not sub-sections
   numbered: True
 chapters:
-- file: syllabus
+- file: Syllabus
 - file: LineSearch
 - file: TrustRegion
 - file: ConjugateGradient
