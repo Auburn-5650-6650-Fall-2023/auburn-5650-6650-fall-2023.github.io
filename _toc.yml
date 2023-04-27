@@ -3,7 +3,15 @@
 
 format: jb-book
 root: intro
+options:  # The options key will be applied to all chapters, but not sub-sections
+  numbered: True
 chapters:
-- file: markdown
-- file: notebooks
-- file: markdown-notebooks
+- file: syllabus
+- file: LineSearch
+- file: TrustRegion
+- file: ConjugateGradient
+- file: QuasiNewton
+- file: LeastSquares
+- file: QuadraticProgramming
+- file: AugmentLagrange
+- file: EvolutionAlgorithm

@@ -1,3 +1,0 @@
-# Course Website
-
-under construction
