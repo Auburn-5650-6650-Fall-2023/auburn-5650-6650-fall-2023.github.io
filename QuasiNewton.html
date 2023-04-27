@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Welcome &#8212; Nonlinear Optimization</title>
+    <title>5. Quasi-Newton Methods &#8212; Nonlinear Optimization</title>
   
   
   
@@ -61,10 +61,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'QuasiNewton';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="1. Syllabus" href="syllabus.html" />
+    <link rel="next" title="6. Least Squares Problems" href="LeastSquares.html" />
+    <link rel="prev" title="4. Conjugate Gradient Methods" href="ConjugateGradient.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -130,7 +131,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="intro.html">
   
   
   
@@ -149,18 +150,18 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
                     Welcome
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="syllabus.html">1. Syllabus</a></li>
 <li class="toctree-l1"><a class="reference internal" href="LineSearch.html">2. Line Search Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="TrustRegion.html">3. Trust Region Method</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ConjugateGradient.html">4. Conjugate Gradient Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="QuasiNewton.html">5. Quasi-Newton Methods</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Quasi-Newton Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="LeastSquares.html">6. Least Squares Problems</a></li>
 <li class="toctree-l1"><a class="reference internal" href="QuadraticProgramming.html">7. Quadratic Programming</a></li>
 <li class="toctree-l1"><a class="reference internal" href="AugmentLagrange.html">8. Augmented Lagrangian Methods</a></li>
@@ -236,7 +237,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/math-5650-6650/math-5650-6650.github.io/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/math-5650-6650/math-5650-6650.github.io/issues/new?title=Issue%20on%20page%20%2FQuasiNewton.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -266,7 +267,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/intro.md" target="_blank"
+      <li><a href="_sources/QuasiNewton.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -346,7 +347,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Welcome</h1>
+    <h1>Quasi-Newton Methods</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -360,22 +361,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="welcome">
-<h1>Welcome<a class="headerlink" href="#welcome" title="Permalink to this heading">#</a></h1>
-<p>This website hosts the course material for Math 5650/6650: <code class="docutils literal notranslate"><span class="pre">Nonlinear</span> <span class="pre">Optimization</span></code>. The class will cover basic optimization knowledge from the book written by Jorge Nocedal and Stephen Wright, <code class="docutils literal notranslate"><span class="pre">Numerical</span> <span class="pre">Optimization</span></code>. Free copy of the book (2nd Edition, 2006) can be found online. The book contains many typos, so be cautious when reading. Please note, this course will not cover the linear programming part (Ch. 13, 14) of the book.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="syllabus.html">1. Syllabus</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LineSearch.html">2. Line Search Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="TrustRegion.html">3. Trust Region Method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ConjugateGradient.html">4. Conjugate Gradient Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="QuasiNewton.html">5. Quasi-Newton Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LeastSquares.html">6. Least Squares Problems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="QuadraticProgramming.html">7. Quadratic Programming</a></li>
-<li class="toctree-l1"><a class="reference internal" href="AugmentLagrange.html">8. Augmented Lagrangian Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EvolutionAlgorithm.html">9. Evolution Algorithms</a></li>
-</ul>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="quasi-newton-methods">
+<h1><span class="section-number">5. </span>Quasi-Newton Methods<a class="headerlink" href="#quasi-newton-methods" title="Permalink to this heading">#</a></h1>
 </section>
 
     <script type="text/x-thebe-config">
@@ -409,12 +396,21 @@ document.write(`
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="ConjugateGradient.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Conjugate Gradient Methods</p>
+      </div>
+    </a>
     <a class="right-next"
-       href="syllabus.html"
+       href="LeastSquares.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Syllabus</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Least Squares Problems</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
