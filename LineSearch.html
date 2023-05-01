@@ -451,12 +451,44 @@ document.write(`
 <li><p><strong>Curvature condition</strong>: <span class="math notranslate nohighlight">\(|\nabla f(x_k + \alpha_k p_k)^T p_k| \leq c_2 |\nabla f_k^T p_k|\)</span> with <span class="math notranslate nohighlight">\(0 &lt; c_1 &lt; c_2 &lt; 1\)</span>.</p></li>
 </ul>
 <p>The only difference is the derivative <span class="math notranslate nohighlight">\(\phi'(\alpha_k)\)</span> in the curvature condition is replaced by its absolute value <span class="math notranslate nohighlight">\(|\phi'(\alpha_k)|\)</span>, which cannot be too positive.</p>
-<div class="proof lemma admonition" id="lemma-WolfeConditions">
-<p class="admonition-title"><span class="caption-number">Lemma 1 </span> (Wolfe Conditions)</p>
+<div class="proof lemma admonition" id="lemma-existence-wolfe-step">
+<p class="admonition-title"><span class="caption-number">Lemma 1 </span> (Existence of Wolfe Step)</p>
 <section class="lemma-content" id="proof-content">
 <p>Suppose that <span class="math notranslate nohighlight">\(f\)</span> is a continuously differentiable function. Let <span class="math notranslate nohighlight">\(p_k\)</span> be a descent direction of <span class="math notranslate nohighlight">\(f\)</span> at <span class="math notranslate nohighlight">\(x_k\)</span> and assume <span class="math notranslate nohighlight">\(f\)</span> is bounded below on the line <span class="math notranslate nohighlight">\(x_k + \alpha p_k\)</span> for <span class="math notranslate nohighlight">\(\alpha &gt; 0\)</span>. Then the step length <span class="math notranslate nohighlight">\(\alpha_k\)</span> satisfying the (strong) Wolfe Conditions exists.</p>
 </section>
-</div></section>
+</div><div class="proof admonition" id="proof">
+<p>Proof. The proof is omitted here.</p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">line_search</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">@description: sample code for wolfe step line search along the direction of pk</span>
+<span class="sd">@parameters : </span>
+<span class="sd">    @objFunc    : objective function  </span>
+<span class="sd">    @objFunc_Grad: gradient of objective function</span>
+<span class="sd">    @xk         : starting point </span>
+<span class="sd">    @pk         : search direction</span>
+<span class="sd">    @c1         : parameter for Armijo condition</span>
+<span class="sd">    @c2         : parameter for curvature condition</span>
+<span class="sd">@returns    : step size</span>
+<span class="sd">@note       : https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.line_search.html</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="k">def</span> <span class="nf">wolfe_line_search_method</span><span class="p">(</span><span class="n">objFunc</span><span class="p">,</span> <span class="n">objFunc_Grad</span><span class="p">,</span> <span class="n">xk</span><span class="p">,</span> <span class="n">pk</span><span class="p">,</span> <span class="n">c1</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span> <span class="n">c2</span><span class="o">=</span><span class="mf">0.9</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">line_search</span><span class="p">(</span><span class="n">objFunc</span><span class="p">,</span> <span class="n">objFunc_Grad</span><span class="p">,</span> <span class="n">xk</span><span class="p">,</span> <span class="n">pk</span><span class="p">,</span> <span class="n">c1</span><span class="o">=</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="o">=</span><span class="n">c2</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
 </section>
 <section id="convergence">
 <h2>Convergence<a class="headerlink" href="#convergence" title="Permalink to this heading">#</a></h2>
