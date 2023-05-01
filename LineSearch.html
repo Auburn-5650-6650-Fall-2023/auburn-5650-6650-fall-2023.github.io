@@ -408,9 +408,75 @@ document.write(`
 <p>Once the search direction <span class="math notranslate nohighlight">\(p_k\)</span> is computed, the step length <span class="math notranslate nohighlight">\(\alpha_k\)</span> is then computed to reduce the objective function <span class="math notranslate nohighlight">\(f\)</span>. Usually, <span class="math notranslate nohighlight">\(\alpha_k\)</span> should be compromised between the reduction of <span class="math notranslate nohighlight">\(f\)</span> and the computational cost of computing <span class="math notranslate nohighlight">\(\alpha_k\)</span>. Ideally, the best choice is the so-called ``exact line search’’ which finds the optimal <span class="math notranslate nohighlight">\(\alpha_k\)</span> that minimizes the following single-variable function <span class="math notranslate nohighlight">\(\phi(\cdot)\)</span> by</p>
 <div class="math notranslate nohighlight">
 \[\phi(\alpha) := f(x_k + \alpha p_k),\quad \alpha &gt; 0.\]</div>
-<p>In general, it is quite expensive to find the optimal <span class="math notranslate nohighlight">\(\alpha_k\)</span> in each iteration. Therefore, we usually use some simple strategies to find a good <span class="math notranslate nohighlight">\(\alpha_k\)</span>, which leads to the <code class="docutils literal notranslate"><span class="pre">inexact</span> <span class="pre">line</span> <span class="pre">search</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">norm</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">minimize_scalar</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">@description: exact line search steepest decent method </span>
+<span class="sd">@parameters : </span>
+<span class="sd">    @objFunc    : objective function  </span>
+<span class="sd">    @gradObjFunc: gradient of objective function</span>
+<span class="sd">    @x0         : starting point </span>
+<span class="sd">    @tol        : tolerance for stopping criteria </span>
+<span class="sd">    @maxIter    : maximum iteration for stopping criteria</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="k">def</span> <span class="nf">exact_steepest_decent_method</span><span class="p">(</span><span class="n">objFunc</span><span class="p">,</span> <span class="n">gradObjFunc</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">tol</span><span class="p">,</span> <span class="n">maxIter</span><span class="p">):</span>
+    <span class="n">path</span>      <span class="o">=</span> <span class="p">[</span><span class="n">x0</span><span class="p">]</span>
+    <span class="n">k</span>         <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">xk</span>        <span class="o">=</span> <span class="n">x0</span>
+    <span class="n">pk</span>        <span class="o">=</span> <span class="o">-</span><span class="n">gradObjFunc</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">norm</span><span class="p">(</span><span class="n">pk</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">tol</span> <span class="ow">and</span> <span class="n">k</span> <span class="o">&lt;=</span> <span class="n">maxIter</span><span class="p">:</span>
+        <span class="k">def</span> <span class="nf">subproblem1D</span><span class="p">(</span><span class="n">alpha</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">objFunc</span><span class="p">(</span><span class="n">xk</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">pk</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">minimize_scalar</span><span class="p">(</span><span class="n">subproblem1D</span><span class="p">)</span> 
+        <span class="n">xk</span>  <span class="o">=</span> <span class="n">xk</span> <span class="o">+</span> <span class="n">res</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">pk</span> 
+        <span class="n">pk</span>  <span class="o">=</span> <span class="o">-</span><span class="n">gradObjFunc</span><span class="p">(</span><span class="n">xk</span><span class="p">)</span>
+        <span class="n">k</span>   <span class="o">=</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">xk</span><span class="p">)</span>
+
+    <span class="n">path</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="c1"># convert to array</span>
+        
+    <span class="k">if</span> <span class="n">norm</span><span class="p">(</span><span class="n">pk</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">tol</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Found the minimizer at </span><span class="si">{x}</span><span class="s2"> with </span><span class="si">{iter}</span><span class="s2"> iterations successfully, gradient&#39;s norm is </span><span class="si">{nrm}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">xk</span><span class="p">,</span><span class="nb">iter</span><span class="o">=</span><span class="n">k</span><span class="p">,</span><span class="n">nrm</span><span class="o">=</span><span class="n">norm</span><span class="p">(</span><span class="n">pk</span><span class="p">)))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Unable to locate minimizer within maximum iterations, last position is at </span><span class="si">{x}</span><span class="s2">, gradient&#39;s norm is </span><span class="si">{nrm}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">xk</span><span class="p">,</span><span class="n">nrm</span><span class="o">=</span><span class="n">norm</span><span class="p">(</span><span class="n">pk</span><span class="p">)))</span>
+        
+    <span class="k">return</span> <span class="n">xk</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">path</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">norm</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">minimize_scalar</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span><span class="sd"> @description: exact line search steepest decent method </span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span><span class="sd"> @parameters : </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span><span class="sd">     @maxIter    : maximum iteration for stopping criteria</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="k">def</span> <span class="nf">exact_steepest_decent_method</span><span class="p">(</span><span class="n">objFunc</span><span class="p">,</span> <span class="n">gradObjFunc</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">tol</span><span class="p">,</span> <span class="n">maxIter</span><span class="p">):</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;scipy&#39;
+</pre></div>
+</div>
+</div>
+</div>
 <section id="wolfe-conditions">
 <h3>Wolfe Conditions<a class="headerlink" href="#wolfe-conditions" title="Permalink to this heading">#</a></h3>
+<p>In general, it is quite expensive to find the optimal <span class="math notranslate nohighlight">\(\alpha_k\)</span> in each iteration. Therefore, we usually use some simple strategies to find a good <span class="math notranslate nohighlight">\(\alpha_k\)</span>, which leads to the <code class="docutils literal notranslate"><span class="pre">inexact</span> <span class="pre">line</span> <span class="pre">search</span></code>. The most popular one is the so-called <code class="docutils literal notranslate"><span class="pre">Wolfe</span> <span class="pre">Conditions</span></code>.</p>
+<p>The Wolfe Conditions are two inequalities that the step length <span class="math notranslate nohighlight">\(\alpha_k\)</span> should satisfy:</p>
+<ol class="arabic simple">
+<li><p><strong>Sufficient decrease condition</strong> (also called <strong>Armijo condition</strong>): <span class="math notranslate nohighlight">\(f(x_k + \alpha_k p_k) \leq f(x_k) + c_1 \alpha_k \nabla f_k^T p_k\)</span> with <span class="math notranslate nohighlight">\(0 &lt; c_1 &lt; 1\)</span>.</p></li>
+<li><p><strong>Curvature condition</strong>: <span class="math notranslate nohighlight">\(\nabla f(x_k + \alpha_k p_k)^T p_k \geq c_2 \nabla f_k^T p_k\)</span> with <span class="math notranslate nohighlight">\(0 &lt; c_1 &lt; c_2 &lt; 1\)</span>.</p></li>
+</ol>
 </section>
 </section>
 <section id="convergence">

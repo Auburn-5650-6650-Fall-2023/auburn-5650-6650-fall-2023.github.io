@@ -1,0 +1,72 @@
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/jupyter_core/utils/__init__.py", line 166, in wrapped
+    return loop.run_until_complete(inner)
+  File "/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import numpy as np
+import matplotlib.pyplot as plt
+from numpy.linalg import norm
+from scipy.optimize import minimize_scalar
+
+"""
+@description: exact line search steepest decent method 
+@parameters : 
+    @objFunc    : objective function  
+    @gradObjFunc: gradient of objective function
+    @x0         : starting point 
+    @tol        : tolerance for stopping criteria 
+    @maxIter    : maximum iteration for stopping criteria
+"""
+def exact_steepest_decent_method(objFunc, gradObjFunc, x0, tol, maxIter):
+    path      = [x0]
+    k         = 0
+    xk        = x0
+    pk        = -gradObjFunc(x0)
+    while norm(pk) > tol and k <= maxIter:
+        def subproblem1D(alpha):
+            return objFunc(xk + alpha * pk)
+        res = minimize_scalar(subproblem1D) 
+        xk  = xk + res.x * pk 
+        pk  = -gradObjFunc(xk)
+        k   = k + 1
+        path.append(xk)
+
+    path = np.array(path) # convert to array
+        
+    if norm(pk) <= tol:
+        print("Found the minimizer at {x} with {iter} iterations successfully, gradient's norm is {nrm}.".format(x=xk,iter=k,nrm=norm(pk)))
+    else:
+        print("Unable to locate minimizer within maximum iterations, last position is at {x}, gradient's norm is {nrm}".format(x=xk,nrm=norm(pk)))
+        
+    return xk, k, path
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Cell [0;32mIn[1], line 4[0m
+[1;32m      2[0m [38;5;28;01mimport[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpyplot[39;00m [38;5;28;01mas[39;00m [38;5;21;01mplt[39;00m
+[1;32m      3[0m [38;5;28;01mfrom[39;00m [38;5;21;01mnumpy[39;00m[38;5;21;01m.[39;00m[38;5;21;01mlinalg[39;00m [38;5;28;01mimport[39;00m norm
+[0;32m----> 4[0m [38;5;28;01mfrom[39;00m [38;5;21;01mscipy[39;00m[38;5;21;01m.[39;00m[38;5;21;01moptimize[39;00m [38;5;28;01mimport[39;00m minimize_scalar
+[1;32m      6[0m [38;5;124;03m"""[39;00m
+[1;32m      7[0m [38;5;124;03m@description: exact line search steepest decent method [39;00m
+[1;32m      8[0m [38;5;124;03m@parameters : [39;00m
+[0;32m   (...)[0m
+[1;32m     13[0m [38;5;124;03m    @maxIter    : maximum iteration for stopping criteria[39;00m
+[1;32m     14[0m [38;5;124;03m"""[39;00m
+[1;32m     15[0m [38;5;28;01mdef[39;00m [38;5;21mexact_steepest_decent_method[39m(objFunc, gradObjFunc, x0, tol, maxIter):
+
+[0;31mModuleNotFoundError[0m: No module named 'scipy'
+
