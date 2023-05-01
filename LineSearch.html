@@ -365,7 +365,28 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-length">Step Length</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-length">Step Length</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wolfe-conditions">Wolfe Conditions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convergence">Convergence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newtons-method-and-quasi-newton-methods">Newton’s Method and Quasi-Newton Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stochastic-gradient-descent">Stochastic Gradient Descent</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-length-selection">Step Length Selection</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exact-line-search">Exact Line Search</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backtracking-line-search">Backtracking Line Search</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-topics">More Topics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#momentum-methods">Momentum Methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nesterovs-accelerated-gradient">Nesterov’s Accelerated Gradient</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#theory">Theory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#programming">Programming</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -379,10 +400,54 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="line-search-methods-week-1">
 <h1>Line Search Methods (Week 1)<a class="headerlink" href="#line-search-methods-week-1" title="Permalink to this heading">#</a></h1>
-<p><span class="math notranslate nohighlight">\(\newcommand{\bp}{\mathbf{p}}\)</span></p>
 <section id="step-length">
 <h2>Step Length<a class="headerlink" href="#step-length" title="Permalink to this heading">#</a></h2>
-<p>Each iteration of line search methods requires a step length <span class="math notranslate nohighlight">\(\alpha_k\)</span> and a search direction <span class="math notranslate nohighlight">\(\bp_k\)</span> to be computed.  The step length is computed by solving the following one-dimensional optimization problem:</p>
+<p>Each iteration of line search methods requires a step length <span class="math notranslate nohighlight">\(\alpha_k\)</span> and a search direction <span class="math notranslate nohighlight">\(p_k\)</span> to be computed, the update is</p>
+<div class="math notranslate nohighlight">
+\[x_{k+1} = x_k + \alpha_k p_k.\]</div>
+<p>Once the search direction <span class="math notranslate nohighlight">\(p_k\)</span> is computed, the step length <span class="math notranslate nohighlight">\(\alpha_k\)</span> is then computed to reduce the objective function <span class="math notranslate nohighlight">\(f\)</span>. Usually, <span class="math notranslate nohighlight">\(\alpha_k\)</span> should be compromised between the reduction of <span class="math notranslate nohighlight">\(f\)</span> and the computational cost of computing <span class="math notranslate nohighlight">\(\alpha_k\)</span>. Ideally, the best choice is the so-called ``exact line search’’ which finds the optimal <span class="math notranslate nohighlight">\(\alpha_k\)</span> that minimizes the following single-variable function <span class="math notranslate nohighlight">\(\phi(\cdot)\)</span> by</p>
+<div class="math notranslate nohighlight">
+\[\phi(\alpha) := f(x_k + \alpha p_k),\quad \alpha &gt; 0.\]</div>
+<p>In general, it is quite expensive to find the optimal <span class="math notranslate nohighlight">\(\alpha_k\)</span> in each iteration. Therefore, we usually use some simple strategies to find a good <span class="math notranslate nohighlight">\(\alpha_k\)</span>, which leads to the <code class="docutils literal notranslate"><span class="pre">inexact</span> <span class="pre">line</span> <span class="pre">search</span></code>.</p>
+<section id="wolfe-conditions">
+<h3>Wolfe Conditions<a class="headerlink" href="#wolfe-conditions" title="Permalink to this heading">#</a></h3>
+</section>
+</section>
+<section id="convergence">
+<h2>Convergence<a class="headerlink" href="#convergence" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="newtons-method-and-quasi-newton-methods">
+<h2>Newton’s Method and Quasi-Newton Methods<a class="headerlink" href="#newtons-method-and-quasi-newton-methods" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="stochastic-gradient-descent">
+<h2>Stochastic Gradient Descent<a class="headerlink" href="#stochastic-gradient-descent" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="step-length-selection">
+<h2>Step Length Selection<a class="headerlink" href="#step-length-selection" title="Permalink to this heading">#</a></h2>
+<section id="exact-line-search">
+<h3>Exact Line Search<a class="headerlink" href="#exact-line-search" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="backtracking-line-search">
+<h3>Backtracking Line Search<a class="headerlink" href="#backtracking-line-search" title="Permalink to this heading">#</a></h3>
+</section>
+</section>
+<section id="more-topics">
+<h2>More Topics<a class="headerlink" href="#more-topics" title="Permalink to this heading">#</a></h2>
+<section id="momentum-methods">
+<h3>Momentum Methods<a class="headerlink" href="#momentum-methods" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="nesterovs-accelerated-gradient">
+<h3>Nesterov’s Accelerated Gradient<a class="headerlink" href="#nesterovs-accelerated-gradient" title="Permalink to this heading">#</a></h3>
+</section>
+</section>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<section id="theory">
+<h3>Theory<a class="headerlink" href="#theory" title="Permalink to this heading">#</a></h3>
+</section>
+<section id="programming">
+<h3>Programming<a class="headerlink" href="#programming" title="Permalink to this heading">#</a></h3>
+</section>
 </section>
 </section>
 
@@ -453,7 +518,28 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-length">Step Length</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-length">Step Length</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wolfe-conditions">Wolfe Conditions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convergence">Convergence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newtons-method-and-quasi-newton-methods">Newton’s Method and Quasi-Newton Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stochastic-gradient-descent">Stochastic Gradient Descent</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-length-selection">Step Length Selection</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exact-line-search">Exact Line Search</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backtracking-line-search">Backtracking Line Search</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-topics">More Topics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#momentum-methods">Momentum Methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nesterovs-accelerated-gradient">Nesterov’s Accelerated Gradient</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#theory">Theory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#programming">Programming</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
