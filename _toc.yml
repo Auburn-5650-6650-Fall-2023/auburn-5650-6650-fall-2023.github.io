@@ -15,3 +15,5 @@ chapters:
 - file: QuadraticProgramming
 - file: AugmentLagrange
 - file: EvolutionAlgorithm
+- file: ExtendedTopics
+- file: Projects

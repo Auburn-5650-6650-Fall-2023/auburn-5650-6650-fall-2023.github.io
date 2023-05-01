@@ -1,4 +1,4 @@
-# Line Search Methods
+# Line Search Methods (Week 1)
 
 ## Step Length 
 ## Convergence 
@@ -6,3 +6,10 @@
 ## Stochastic Gradient Descent
 ## Step Length Selection
 ## More Topics
+### Momentum methods
+
+## Exercises
+
+### Theory
+
+### Programming
