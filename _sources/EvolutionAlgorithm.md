@@ -1,4 +1,4 @@
-# Evolution Algorithms
+# Evolution Algorithms (Week 10)
 
 ## Classic Genetic Algorithm
 
@@ -7,3 +7,5 @@
 ## Simulated Annealing
 
 ## Particle Swarm
+
+## Exercises
