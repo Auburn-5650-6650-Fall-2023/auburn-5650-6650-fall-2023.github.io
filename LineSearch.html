@@ -35,6 +35,7 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -450,7 +451,12 @@ document.write(`
 <li><p><strong>Curvature condition</strong>: <span class="math notranslate nohighlight">\(|\nabla f(x_k + \alpha_k p_k)^T p_k| \leq c_2 |\nabla f_k^T p_k|\)</span> with <span class="math notranslate nohighlight">\(0 &lt; c_1 &lt; c_2 &lt; 1\)</span>.</p></li>
 </ul>
 <p>The only difference is the derivative <span class="math notranslate nohighlight">\(\phi'(\alpha_k)\)</span> in the curvature condition is replaced by its absolute value <span class="math notranslate nohighlight">\(|\phi'(\alpha_k)|\)</span>, which cannot be too positive.</p>
+<div class="proof lemma admonition" id="lemma-WolfeConditions">
+<p class="admonition-title"><span class="caption-number">Lemma 1 </span> (Wolfe Conditions)</p>
+<section class="lemma-content" id="proof-content">
+<p>Suppose that <span class="math notranslate nohighlight">\(f\)</span> is a continuously differentiable function. Let <span class="math notranslate nohighlight">\(p_k\)</span> be a descent direction of <span class="math notranslate nohighlight">\(f\)</span> at <span class="math notranslate nohighlight">\(x_k\)</span> and assume <span class="math notranslate nohighlight">\(f\)</span> is bounded below on the line <span class="math notranslate nohighlight">\(x_k + \alpha p_k\)</span> for <span class="math notranslate nohighlight">\(\alpha &gt; 0\)</span>. Then the step length <span class="math notranslate nohighlight">\(\alpha_k\)</span> satisfying the (strong) Wolfe Conditions exists.</p>
 </section>
+</div></section>
 </section>
 <section id="convergence">
 <h2>Convergence<a class="headerlink" href="#convergence" title="Permalink to this heading">#</a></h2>
