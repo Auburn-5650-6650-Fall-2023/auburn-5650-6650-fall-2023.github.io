@@ -368,16 +368,13 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-length">Step Length</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wolfe-conditions">Wolfe Conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#goldstein-conditions">Goldstein Conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backtracking-line-search">Backtracking Line Search</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convergence">Convergence</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newtons-method-and-quasi-newton-methods">Newton’s Method and Quasi-Newton Methods</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stochastic-gradient-descent">Stochastic Gradient Descent</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-length-selection">Step Length Selection</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exact-line-search">Exact Line Search</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backtracking-line-search">Backtracking Line Search</a></li>
-</ul>
-</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-topics">More Topics</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#momentum-methods">Momentum Methods</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nesterovs-accelerated-gradient">Nesterov’s Accelerated Gradient</a></li>
@@ -489,6 +486,30 @@ document.write(`
 </details>
 </div>
 </section>
+<section id="goldstein-conditions">
+<h3>Goldstein Conditions<a class="headerlink" href="#goldstein-conditions" title="Permalink to this heading">#</a></h3>
+<p>Another popular choice of the inexact line search is the <strong>Goldstein Conditions</strong>:</p>
+<div class="math notranslate nohighlight">
+\[f(x_k) + c \alpha_k \nabla f_k^T p_k \le f(x_k + \alpha_k p_k) \leq f(x_k) + (1 - c) \alpha_k \nabla f_k^T p_k\]</div>
+<p>with <span class="math notranslate nohighlight">\(0 &lt; c &lt; \frac{1}{2}\)</span>. The second inequality is the <strong>sufficient decrease condition</strong> and the first inequality is the control of step length from being too short. In comparison with Wolfe condition, one disadvantage of Goldstein condition is that the first inequality of the condition might exclude all minimizers of <span class="math notranslate nohighlight">\(\phi(\alpha)\)</span>. However, usually it is not a fatal problem as long as the objective decreases in the direction of convergence. As a short conclusion, the Goldstein and Wolfe conditions have quite similar convergence theories. Compared to the Wolfe conditions, the Goldstein conditions are often used in Newton-type methods but are not well-suited for quasi-Newton methods that maintain a positive definite Hessian approximation.</p>
+</section>
+<section id="backtracking-line-search">
+<h3>Backtracking Line Search<a class="headerlink" href="#backtracking-line-search" title="Permalink to this heading">#</a></h3>
+<p>The <strong>backtracking line search</strong> is a simple strategy to find a step length <span class="math notranslate nohighlight">\(\alpha_k\)</span> that satisfies the sufficient decrease condition. The algorithm is described as follows:</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Algorithm: Backtracking Line Search</p>
+<p>Given <span class="math notranslate nohighlight">\(x_k\)</span>, <span class="math notranslate nohighlight">\(p_k\)</span>, <span class="math notranslate nohighlight">\(\alpha_0\)</span>, <span class="math notranslate nohighlight">\(\rho \in (0, 1)\)</span>, <span class="math notranslate nohighlight">\(c \in (0, 1)\)</span>.</p>
+<ol class="arabic simple">
+<li><p>Set <span class="math notranslate nohighlight">\(\alpha = \alpha_0\)</span>.</p></li>
+<li><p>While <span class="math notranslate nohighlight">\(f(x_k + \alpha p_k) &gt; f(x_k) + c \alpha \nabla f_k^T p_k\)</span> do</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(\alpha = \rho \alpha\)</span>.</p></li>
+</ol>
+</li>
+<li><p>End While</p></li>
+</ol>
+</div>
+</section>
 </section>
 <section id="convergence">
 <h2>Convergence<a class="headerlink" href="#convergence" title="Permalink to this heading">#</a></h2>
@@ -498,15 +519,6 @@ document.write(`
 </section>
 <section id="stochastic-gradient-descent">
 <h2>Stochastic Gradient Descent<a class="headerlink" href="#stochastic-gradient-descent" title="Permalink to this heading">#</a></h2>
-</section>
-<section id="step-length-selection">
-<h2>Step Length Selection<a class="headerlink" href="#step-length-selection" title="Permalink to this heading">#</a></h2>
-<section id="exact-line-search">
-<h3>Exact Line Search<a class="headerlink" href="#exact-line-search" title="Permalink to this heading">#</a></h3>
-</section>
-<section id="backtracking-line-search">
-<h3>Backtracking Line Search<a class="headerlink" href="#backtracking-line-search" title="Permalink to this heading">#</a></h3>
-</section>
 </section>
 <section id="more-topics">
 <h2>More Topics<a class="headerlink" href="#more-topics" title="Permalink to this heading">#</a></h2>
@@ -597,16 +609,13 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-length">Step Length</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wolfe-conditions">Wolfe Conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#goldstein-conditions">Goldstein Conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backtracking-line-search">Backtracking Line Search</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convergence">Convergence</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newtons-method-and-quasi-newton-methods">Newton’s Method and Quasi-Newton Methods</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stochastic-gradient-descent">Stochastic Gradient Descent</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-length-selection">Step Length Selection</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exact-line-search">Exact Line Search</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backtracking-line-search">Backtracking Line Search</a></li>
-</ul>
-</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-topics">More Topics</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#momentum-methods">Momentum Methods</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nesterovs-accelerated-gradient">Nesterov’s Accelerated Gradient</a></li>
