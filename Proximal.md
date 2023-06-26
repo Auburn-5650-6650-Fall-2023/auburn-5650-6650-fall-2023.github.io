@@ -1,1 +1,1 @@
-# Proximal Methods (Week 12)
+# Mirror Descent and Proximal Methods (Week 12)
