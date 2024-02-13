@@ -34,7 +34,7 @@ The final group project evaluation consists of two parts.
 
 ## Discussion
 
-- General discussion: Please read the discussion (<https://github.com/orgs/math-5650-6650/discussions>) for more information about the class. If you have question about the information, simply start a new discussion.
+- General discussion: Please read the discussion for more information about the class. If you have question about the information, simply start a new discussion.
 - Technical discussion: We will tentatively use slack or discord for group chatting and direct messages instead of posting announcements through canvas.
 
 <!--
