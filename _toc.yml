@@ -8,6 +8,7 @@ options:  # The options key will be applied to all chapters, but not sub-section
 parts:
   - caption: Lecture notes
     chapters:
+    - file: Intro
     - file: LineSearch
     - file: TrustRegion
     - file: ConjugateGradient
