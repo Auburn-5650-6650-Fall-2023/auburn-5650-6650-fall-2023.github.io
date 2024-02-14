@@ -43,3 +43,4 @@ sphinx:
   extra_extensions:
     - sphinx_proof
     - sphinx_multitoc_numbering
+    - sphinx_design
