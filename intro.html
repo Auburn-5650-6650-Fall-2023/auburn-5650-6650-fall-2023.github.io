@@ -382,7 +382,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formulation-of-optimization-problems">Formulation of Optimization Problems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formulation-of-optimization-problems">Formulation of Optimization Problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-vs-discrete-optimization">Continuous vs. Discrete Optimization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unconstrained-vs-constrained-optimization">Unconstrained vs. Constrained Optimization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-vs-local-optimization">Global vs. Local Optimization</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -463,12 +468,29 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f20c0d16f70&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f83a05bce80&gt;
 </pre></div>
 </div>
 <img alt="_images/7bf519f3c084dfde70bfee3d09d98f11f09579133e71c728937b66c02b297573.png" src="_images/7bf519f3c084dfde70bfee3d09d98f11f09579133e71c728937b66c02b297573.png" />
 </div>
 </div>
+<section id="continuous-vs-discrete-optimization">
+<h3>Continuous vs. Discrete Optimization<a class="headerlink" href="#continuous-vs-discrete-optimization" title="Permalink to this heading">#</a></h3>
+<p>Some optimization problems have special requirements on the decision variables. For example, the decision variables are required to be integers, then the optimization problem is called <strong>discrete optimization</strong>. Otherwise, the optimization problem is called <strong>continuous optimization</strong>.</p>
+<p>The discrete optimization problems are usually more difficult to solve than continuous optimization problems. The discrete optimization problems are widely used in combinatorial optimization, such as the traveling salesman problem, the knapsack problem, and the assignment problem.</p>
+</section>
+<section id="unconstrained-vs-constrained-optimization">
+<h3>Unconstrained vs. Constrained Optimization<a class="headerlink" href="#unconstrained-vs-constrained-optimization" title="Permalink to this heading">#</a></h3>
+<p>Optimization problems can be classified into two categories: <strong>unconstrained optimization</strong> and <strong>constrained optimization</strong>.</p>
+<ul class="simple">
+<li><p><strong>Unconstrained optimization</strong>: the optimization problem does not have any constraints or it is safe to ignore the constraints. Sometimes constrained optimization problems can be converted into unconstrained optimization problems by using the Lagrange multiplier method.</p></li>
+<li><p><strong>Constrained optimization</strong>: the optimization problem has constraints, for instance, <span class="math notranslate nohighlight">\(g_i(x) \le 0\)</span>, <span class="math notranslate nohighlight">\(h_j(x) = 0\)</span>. The constraints can be linear or nonlinear, equality or inequality.</p></li>
+</ul>
+</section>
+<section id="global-vs-local-optimization">
+<h3>Global vs. Local Optimization<a class="headerlink" href="#global-vs-local-optimization" title="Permalink to this heading">#</a></h3>
+<p>Most fast optimization algorithms can only find a local minimum, which is not necessarily the global minimum. The global optimization problem is usually more difficult to solve than the local optimization problem. The global optimization problem is also called the <strong>global optimization</strong>.</p>
+<p>One special case of the global optimization problem is the <strong>convex optimization</strong> problem, whose local minimums are also global minimums. The convex optimization problem is usually easier to solve than the general optimization problem.</p>
 <!-- 
 ````{tab-set}
 ```{tab-item} Tab 1 title
@@ -501,6 +523,7 @@ D
 :::
 
 :::: --></section>
+</section>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
@@ -561,7 +584,12 @@ D
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formulation-of-optimization-problems">Formulation of Optimization Problems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formulation-of-optimization-problems">Formulation of Optimization Problems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-vs-discrete-optimization">Continuous vs. Discrete Optimization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unconstrained-vs-constrained-optimization">Unconstrained vs. Constrained Optimization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-vs-local-optimization">Global vs. Local Optimization</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
