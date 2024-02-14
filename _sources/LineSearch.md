@@ -48,7 +48,7 @@ def exact_line_search_method(objFunc, xk, pk):
 
 In general, it is quite expensive to find the optimal $\alpha_k$ in each iteration. Therefore, we usually use some simple strategies to find a good $\alpha_k$, which leads to the ``inexact line search``. The most popular one is the so-called ``Wolfe Conditions``.
 
-The Wolfe Conditions are two inequalities that the step length $\alpha_k$ should satisfy:
+The ``Wolfe Conditions`` are two inequalities that the step length $\alpha_k$ should satisfy:
 
 - **Sufficient decrease condition** (also called **Armijo condition**): $f(x_k + \alpha_k p_k) \leq f(x_k) + c_1 \alpha_k \nabla f_k^T p_k$ with $0 < c_1 < 1$.
 - **Curvature condition**: $\nabla f(x_k + \alpha_k p_k)^T p_k \geq c_2 \nabla f_k^T p_k$ with $0 < c_1 < c_2 < 1$.
