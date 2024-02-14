@@ -412,7 +412,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fb2a89cbf10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f13f4b88ee0&gt;
 </pre></div>
 </div>
 <img alt="_images/7bf519f3c084dfde70bfee3d09d98f11f09579133e71c728937b66c02b297573.png" src="_images/7bf519f3c084dfde70bfee3d09d98f11f09579133e71c728937b66c02b297573.png" />
@@ -450,10 +450,15 @@ document.write(`
 <section id="convexity">
 <h3>Convexity<a class="headerlink" href="#convexity" title="Permalink to this heading">#</a></h3>
 <p>The <strong>convexity</strong> plays an important role in optimization. Usually it implies some benign properties of the optimization problem. The <strong>convexity</strong> applies to both sets and functions.</p>
-<ul class="simple">
-<li><p>For sets, a set <span class="math notranslate nohighlight">\(C\subseteq\mathbb{R}^n\)</span> is called <strong>convex</strong> if the line segment between any two points in <span class="math notranslate nohighlight">\(C\)</span> is also in <span class="math notranslate nohighlight">\(C\)</span>. Mathematically, it means $<span class="math notranslate nohighlight">\(\lambda x + (1-\lambda)y\in C, \quad \forall x, y\in C,\quad \lambda\in[0,1].\)</span>$</p></li>
-<li><p>For functions, a function <span class="math notranslate nohighlight">\(f(x)\)</span> is called <strong>convex</strong> if its domain is a convex set and the following inequality holds
-$<span class="math notranslate nohighlight">\(f(\lambda x + (1-\lambda)y) \le \lambda f(x) + (1-\lambda)f(y), \quad \forall x, y\in\text{dom}f,\quad \lambda\in[0,1].\)</span>$</p></li>
+<ul>
+<li><p>For sets, a set <span class="math notranslate nohighlight">\(C\subseteq\mathbb{R}^n\)</span> is called <strong>convex</strong> if the line segment between any two points in <span class="math notranslate nohighlight">\(C\)</span> is also in <span class="math notranslate nohighlight">\(C\)</span>. Mathematically, it means</p>
+<div class="math notranslate nohighlight">
+\[\lambda x + (1-\lambda)y\in C, \quad \forall x, y\in C,\quad \lambda\in[0,1].\]</div>
+</li>
+<li><p>For functions, a function <span class="math notranslate nohighlight">\(f(x)\)</span> is called <strong>convex</strong> if its domain is a convex set and the following inequality holds</p>
+<div class="math notranslate nohighlight">
+\[f(\lambda x + (1-\lambda)y) \le \lambda f(x) + (1-\lambda)f(y), \quad \forall x, y\in\text{dom}f,\quad \lambda\in[0,1].\]</div>
+</li>
 </ul>
 </section>
 </section>
