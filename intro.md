@@ -1,3 +1,16 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
+
 # Before you start
 
 This repository hosts the course material for Math 5650/6650: **Nonlinear Optimization**. The class will use the textbook written by Jorge Nocedal and Stephen Wright, *Numerical Optimization*, 2nd Edition.
