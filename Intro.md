@@ -26,6 +26,8 @@ The standard form of an optimization problem is
 
 $$\min_{x \in \mathbb{R}^n} f(x),\quad \text{subject to } \begin{cases}g_i(x) \le 0, \quad i = 1, \ldots, m\\h_j(x) = 0, \quad j = 1, \ldots, p\end{cases}$$
 
+The objective is to find the optimal decision variable $x^*$ that minimizes the objective function $f(x)$ while satisfying all the constraints.
+
 ````{prf:definition}
 :label: def-feasible-solution
 A **feasible solution** is a solution that satisfies all the constraints, otherwise, the solution is called **infeasible**.
@@ -33,9 +35,10 @@ A **feasible solution** is a solution that satisfies all the constraints, otherw
 The **feasible region** of an optimization problem is the set of all feasible solutions. The feasible region is also called the **feasible set**. 
 ````
 
+In the following, we provide an example to illustrate the concept of the feasible region.
+
 ````{prf:example}
 :label: ex-feasible-region
-Consider the following optimization problem:
 
 $$\min_{x \in \mathbb{R}^2} f(x) = (x_1-2)^2 + (x_2-1)^2, \quad \text{subject to } \begin{cases}x_2 - x_1^2 \ge 0\\x_1 + x_2 \le 2\end{cases}$$
 
@@ -109,4 +112,5 @@ These properties are usually conflicting with each other. For example, a rapidly
 The **convexity** plays an important role in optimization. Usually it implies some benign properties of the optimization problem. The **convexity** applies to both sets and functions. 
 
 - For sets, a set $C\subseteq\mathbb{R}^n$ is called **convex** if the line segment between any two points in $C$ is also in $C$. Mathematically, it means $$\lambda x + (1-\lambda)y\in C, \quad \forall x, y\in C,\quad \lambda\in[0,1].$$
-- For functions, a function $f(x)$ is called **convex** if its domain is a convex set and the following inequality holds $$f(\lambda x + (1-\lambda)y) \le \lambda f(x) + (1-\lambda)f(y), \quad \forall x, y\in\text{dom}f,\quad \lambda\in[0,1].$$
+- For functions, a function $f(x)$ is called **convex** if its domain is a convex set and the following inequality holds
+  $$f(\lambda x + (1-\lambda)y) \le \lambda f(x) + (1-\lambda)f(y), \quad \forall x, y\in\text{dom}f,\quad \lambda\in[0,1].$$
