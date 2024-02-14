@@ -4,3 +4,4 @@ numpy
 ghp-import
 scipy
 sphinx-proof
+sphinx-inline-tabs
