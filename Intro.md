@@ -74,7 +74,7 @@ plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
 
 ### Continuous vs. Discrete Optimization
 
-Some optimization problems have special requirements on the decision variables. For example, the decision variables are required to be integers, then the optimization problem is called **discrete optimization**. Otherwise, the optimization problem is called **continuous optimization**.
+Some optimization problems have special requirements on the decision variables. For example, the decision variables are required to be integers or discrete values, then the optimization problem is called **discrete optimization**. Otherwise, the optimization problem is called **continuous optimization**.
 
 The discrete optimization problems are usually more difficult to solve than continuous optimization problems. The discrete optimization problems are widely used in combinatorial optimization, such as the traveling salesman problem, the knapsack problem, and the assignment problem.
 
@@ -94,4 +94,19 @@ One special case of the global optimization problem is the **convex optimization
 
 ## Optimization Algorithms
 
-Most optimization algorithms are **iterative algorithms**, which means they start from an initial point and then generate a sequence of points that converge to the optimal solution. The sequence of points is called the **iterative sequence**.
+Most optimization algorithms are **iterative algorithms**, which means they start from an initial point $x_0\in\mathbb{R}^n$ and then generate a sequence of points $x_k$, $k=1,2,\cdots$ that converge to the optimal solution. The sequence of points is called the **iterative sequence**.
+
+Ideally, a perfect algorithm should have the following properties:
+
+- Robustness: the algorithm should be able to handle different types of optimization problems, such as convex, non-convex, smooth, non-smooth, etc.
+- Efficiency: the algorithm should be able to find the optimal solution within a reasonable amount of time.
+- Accuracy: the algorithm should be able to find the optimal solution with high precision.
+
+These properties are usually conflicting with each other. For example, a rapidly convergent algorithm for nonlinear programming may require too much computation resources on large problems. On the other hand, a robust algorithm may also be the slowest one. The trade-off between these properties is a key issue in the design of optimization algorithms.
+
+### Convexity
+
+The **convexity** plays an important role in optimization. Usually it implies some benign properties of the optimization problem. The **convexity** applies to both sets and functions. 
+
+- For sets, a set $C\subseteq\mathbb{R}^n$ is called **convex** if the line segment between any two points in $C$ is also in $C$. Mathematically, it means $$\lambda x + (1-\lambda)y\in C, \quad \forall x, y\in C,\quad \lambda\in[0,1].$$
+- For functions, a function $f(x)$ is called **convex** if its domain is a convex set and the following inequality holds $$f(\lambda x + (1-\lambda)y) \le \lambda f(x) + (1-\lambda)f(y), \quad \forall x, y\in\text{dom}f,\quad \lambda\in[0,1].$$
