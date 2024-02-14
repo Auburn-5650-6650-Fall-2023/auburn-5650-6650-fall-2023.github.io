@@ -26,7 +26,7 @@ The default programming language for this class is ``Python``, the other script 
 
 ## Formulation of Optimization Problems
 
-The optimization serves as an important part of data science. Optimization algorithms are widely used in machine learning, statistics, and other fields.
+The optimization serves as an important tool for decision making, resource allocation, and many other applications. Optimization algorithms are widely used in machine learning, statistics, and other fields.
 
 An optimization problem can be formulated as follows:
 
@@ -62,7 +62,7 @@ We can reformulate the optimization problem with the standard form:
 The following code snippet shows the feasible region of the optimization problem.
 
 ```{code-cell} ipython3
-:tags: [scroll-output]
+:tags: []
 import matplotlib.pyplot as plt
 import numpy as np
 
