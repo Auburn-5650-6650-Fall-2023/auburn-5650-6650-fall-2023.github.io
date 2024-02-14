@@ -423,6 +423,86 @@ document.write(`
 <p>Once the search direction <span class="math notranslate nohighlight">\(p_k\)</span> is computed, the step length <span class="math notranslate nohighlight">\(\alpha_k\)</span> is then computed to reduce the objective function <span class="math notranslate nohighlight">\(f\)</span>. Usually, <span class="math notranslate nohighlight">\(\alpha_k\)</span> should be compromised between the reduction of <span class="math notranslate nohighlight">\(f\)</span> and the computational cost of computing <span class="math notranslate nohighlight">\(\alpha_k\)</span>. Ideally, the best choice is the so-called ``exact line search’’ which finds the optimal <span class="math notranslate nohighlight">\(\alpha_k\)</span> that minimizes the following single-variable function <span class="math notranslate nohighlight">\(\phi(\cdot)\)</span> by</p>
 <div class="math notranslate nohighlight">
 \[\phi(\alpha) := f(x_k + \alpha p_k),\quad \alpha &gt; 0.\]</div>
+<div class="cell tag_scroll-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;this is output line </span><span class="si">{</span><span class="n">ii</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>this is output line 0
+this is output line 1
+this is output line 2
+this is output line 3
+this is output line 4
+this is output line 5
+this is output line 6
+this is output line 7
+this is output line 8
+this is output line 9
+this is output line 10
+this is output line 11
+this is output line 12
+this is output line 13
+this is output line 14
+this is output line 15
+this is output line 16
+this is output line 17
+this is output line 18
+this is output line 19
+this is output line 20
+this is output line 21
+this is output line 22
+this is output line 23
+this is output line 24
+this is output line 25
+this is output line 26
+this is output line 27
+this is output line 28
+this is output line 29
+this is output line 30
+this is output line 31
+this is output line 32
+this is output line 33
+this is output line 34
+this is output line 35
+this is output line 36
+this is output line 37
+this is output line 38
+this is output line 39
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">minimize_scalar</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">@description: sample code for exact line search along the direction of pk</span>
+<span class="sd">@parameters : </span>
+<span class="sd">    @objFunc    : objective function  </span>
+<span class="sd">    @xk         : starting point </span>
+<span class="sd">    @pk         : search direction</span>
+<span class="sd">@returns    : step size</span>
+<span class="sd">@note       : https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize_scalar.html</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="k">def</span> <span class="nf">exact_line_search_method</span><span class="p">(</span><span class="n">objFunc</span><span class="p">,</span> <span class="n">xk</span><span class="p">,</span> <span class="n">pk</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">subproblem1D</span><span class="p">(</span><span class="n">alpha</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">objFunc</span><span class="p">(</span><span class="n">xk</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">pk</span><span class="p">)</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">minimize_scalar</span><span class="p">(</span><span class="n">subproblem1D</span><span class="p">)</span> 
+    <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
 <section id="wolfe-conditions">
 <h3>Wolfe Conditions<a class="headerlink" href="#wolfe-conditions" title="Permalink to this heading">#</a></h3>
 <p>In general, it is quite expensive to find the optimal <span class="math notranslate nohighlight">\(\alpha_k\)</span> in each iteration. Therefore, we usually use some simple strategies to find a good <span class="math notranslate nohighlight">\(\alpha_k\)</span>, which leads to the <code class="docutils literal notranslate"><span class="pre">inexact</span> <span class="pre">line</span> <span class="pre">search</span></code>. The most popular one is the so-called <code class="docutils literal notranslate"><span class="pre">Wolfe</span> <span class="pre">Conditions</span></code>.</p>
@@ -444,6 +524,35 @@ document.write(`
 </section>
 </div><div class="proof admonition" id="proof">
 <p>Proof. The proof is omitted here.</p>
+</div>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">line_search</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">@description: sample code for wolfe step line search along the direction of pk</span>
+<span class="sd">@parameters : </span>
+<span class="sd">    @objFunc    : objective function  </span>
+<span class="sd">    @objFunc_Grad: gradient of objective function</span>
+<span class="sd">    @xk         : starting point </span>
+<span class="sd">    @pk         : search direction</span>
+<span class="sd">    @c1         : parameter for Armijo condition</span>
+<span class="sd">    @c2         : parameter for curvature condition</span>
+<span class="sd">@returns    : step size</span>
+<span class="sd">@note       : https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.line_search.html</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="k">def</span> <span class="nf">wolfe_line_search_method</span><span class="p">(</span><span class="n">objFunc</span><span class="p">,</span> <span class="n">objFunc_Grad</span><span class="p">,</span> <span class="n">xk</span><span class="p">,</span> <span class="n">pk</span><span class="p">,</span> <span class="n">c1</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span> <span class="n">c2</span><span class="o">=</span><span class="mf">0.9</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">line_search</span><span class="p">(</span><span class="n">objFunc</span><span class="p">,</span> <span class="n">objFunc_Grad</span><span class="p">,</span> <span class="n">xk</span><span class="p">,</span> <span class="n">pk</span><span class="p">,</span> <span class="n">c1</span><span class="o">=</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="o">=</span><span class="n">c2</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</details>
 </div>
 </section>
 <section id="goldstein-conditions">
