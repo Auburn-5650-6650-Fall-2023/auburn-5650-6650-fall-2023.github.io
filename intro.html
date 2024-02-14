@@ -63,6 +63,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -357,7 +359,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -373,6 +377,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formulation-of-optimization-problems">Formulation of Optimization Problems</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -394,7 +406,37 @@ document.write(`
 <p class="admonition-title">Note</p>
 <p>The default programming language for this class is <code class="docutils literal notranslate"><span class="pre">Python</span></code>, the other script languages such as <code class="docutils literal notranslate"><span class="pre">MATLAB</span></code>,  <code class="docutils literal notranslate"><span class="pre">R</span></code>, <code class="docutils literal notranslate"><span class="pre">Julia</span></code> are also supported.</p>
 </div>
-<!-- 
+<section id="formulation-of-optimization-problems">
+<h2>Formulation of Optimization Problems<a class="headerlink" href="#formulation-of-optimization-problems" title="Permalink to this heading">#</a></h2>
+<p>The optimization serves as an important part of data science. Optimization algorithms are widely used in machine learning, statistics, and other fields.</p>
+<ul class="simple">
+<li><p>Financial engineering: portfolio optimization, option pricing</p></li>
+<li><p>Science: parameter estimation, model calibration, experimental design</p></li>
+<li><p>Engineering: optimal control, structural optimization, design optimization</p></li>
+</ul>
+<p>An optimization problem can be formulated as follows:</p>
+<ul class="simple">
+<li><p>an objective function: <span class="math notranslate nohighlight">\(f(x)\)</span>, which is meant to be maximized or minimized</p></li>
+<li><p>decision variables: <span class="math notranslate nohighlight">\(x \in \mathbb{R}^n\)</span></p></li>
+<li><p>constraints: <span class="math notranslate nohighlight">\(g_i(x) \le 0\)</span>, <span class="math notranslate nohighlight">\(h_j(x) = 0\)</span></p></li>
+</ul>
+<p>The standard form of an optimization problem is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\min_{x \in \mathbb{R}^n} f(x),\quad \text{subject to } \begin{cases}g_i(x) \le 0, \quad i = 1, \ldots, m\\h_j(x) = 0, \quad j = 1, \ldots, p\end{cases}\end{split}\]</div>
+<div class="proof definition admonition" id="def-feasible-solution">
+<p class="admonition-title"><span class="caption-number">Definition 1 </span></p>
+<section class="definition-content" id="proof-content">
+<p>A <strong>feasible solution</strong> is a solution that satisfies all the constraints, otherwise, the solution is called <strong>infeasible</strong>.</p>
+<p>The <strong>feasible region</strong> of an optimization problem is the set of all feasible solutions. The feasible region is also called the <strong>feasible set</strong>.</p>
+</section>
+</div><div class="proof example admonition" id="ex-feasible-region">
+<p class="admonition-title"><span class="caption-number">Example 1 </span></p>
+<section class="example-content" id="proof-content">
+<p>Consider the following optimization problem:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\min_{x \in \mathbb{R}^2} f(x) = (x_1-2)^2 + (x_2-1)^2, \quad \text{subject to } \begin{cases}x_2 - x_1^2 \ge 0\\x_1 + x_2 \le 2\end{cases}\end{split}\]</div>
+</section>
+</div><!-- 
 ````{tab-set}
 ```{tab-item} Tab 1 title
 My first tab
@@ -425,7 +467,8 @@ C
 D
 :::
 
-:::: --><div class="toctree-wrapper compound">
+:::: --></section>
+<div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
 </div>
@@ -476,6 +519,20 @@ D
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formulation-of-optimization-problems">Formulation of Optimization Problems</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
