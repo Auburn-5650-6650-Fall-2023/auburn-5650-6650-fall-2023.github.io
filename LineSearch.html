@@ -447,13 +447,13 @@ document.write(`
 </div>
 <section id="wolfe-conditions">
 <h3>Wolfe Conditions<a class="headerlink" href="#wolfe-conditions" title="Permalink to this heading">#</a></h3>
-<p>In general, it is quite expensive to find the optimal <span class="math notranslate nohighlight">\(\alpha_k\)</span> in each iteration. Therefore, we usually use some simple strategies to find a good <span class="math notranslate nohighlight">\(\alpha_k\)</span>, which leads to the <code class="docutils literal notranslate"><span class="pre">inexact</span> <span class="pre">line</span> <span class="pre">search</span></code>. The most popular one is the so-called <code class="docutils literal notranslate"><span class="pre">Wolfe</span> <span class="pre">Conditions</span></code>.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">Wolfe</span> <span class="pre">Conditions</span></code> are two inequalities that the step length <span class="math notranslate nohighlight">\(\alpha_k\)</span> should satisfy:</p>
+<p>In general, it is quite expensive to find the optimal <span class="math notranslate nohighlight">\(\alpha_k\)</span> in each iteration. Therefore, we usually use some simple strategies to find a good <span class="math notranslate nohighlight">\(\alpha_k\)</span>, which leads to the <em>inexact line search</em>. The most popular one is the so-called <em>Wolfe Conditions</em>.</p>
+<p>The <em>Wolfe Conditions</em> are two inequalities that the step length <span class="math notranslate nohighlight">\(\alpha_k\)</span> should satisfy:</p>
 <ul class="simple">
 <li><p><strong>Sufficient decrease condition</strong> (also called <strong>Armijo condition</strong>): <span class="math notranslate nohighlight">\(f(x_k + \alpha_k p_k) \leq f(x_k) + c_1 \alpha_k \nabla f_k^T p_k\)</span> with <span class="math notranslate nohighlight">\(0 &lt; c_1 &lt; 1\)</span>.</p></li>
 <li><p><strong>Curvature condition</strong>: <span class="math notranslate nohighlight">\(\nabla f(x_k + \alpha_k p_k)^T p_k \geq c_2 \nabla f_k^T p_k\)</span> with <span class="math notranslate nohighlight">\(0 &lt; c_1 &lt; c_2 &lt; 1\)</span>.</p></li>
 </ul>
-<p>The step length satisfying the Wolfe Conditions is called a <strong>Wolfe step</strong>, which may not be close to the exact step length. In order to force the steo length to be close to the exact step length, we can use the <strong>strong Wolfe Conditions</strong>:</p>
+<p>The step length satisfying the <em>Wolfe Conditions</em> is called a <strong>Wolfe step</strong>, which may not be close to the exact step length. In order to force the steo length to be close to the exact step length, we can use the <strong>strong Wolfe Conditions</strong>:</p>
 <ul class="simple">
 <li><p><strong>Sufficient decrease condition</strong>: <span class="math notranslate nohighlight">\(f(x_k + \alpha_k p_k) \leq f(x_k) + c_1 \alpha_k \nabla f_k^T p_k\)</span> with <span class="math notranslate nohighlight">\(0 &lt; c_1 &lt; 1\)</span>.</p></li>
 <li><p><strong>Curvature condition</strong>: <span class="math notranslate nohighlight">\(|\nabla f(x_k + \alpha_k p_k)^T p_k| \leq c_2 |\nabla f_k^T p_k|\)</span> with <span class="math notranslate nohighlight">\(0 &lt; c_1 &lt; c_2 &lt; 1\)</span>.</p></li>
