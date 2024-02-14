@@ -409,11 +409,6 @@ document.write(`
 <section id="formulation-of-optimization-problems">
 <h2>Formulation of Optimization Problems<a class="headerlink" href="#formulation-of-optimization-problems" title="Permalink to this heading">#</a></h2>
 <p>The optimization serves as an important part of data science. Optimization algorithms are widely used in machine learning, statistics, and other fields.</p>
-<ul class="simple">
-<li><p>Financial engineering: portfolio optimization, option pricing</p></li>
-<li><p>Science: parameter estimation, model calibration, experimental design</p></li>
-<li><p>Engineering: optimal control, structural optimization, design optimization</p></li>
-</ul>
 <p>An optimization problem can be formulated as follows:</p>
 <ul class="simple">
 <li><p>an objective function: <span class="math notranslate nohighlight">\(f(x)\)</span>, which is meant to be maximized or minimized</p></li>
@@ -435,8 +430,15 @@ document.write(`
 <p>Consider the following optimization problem:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\min_{x \in \mathbb{R}^2} f(x) = (x_1-2)^2 + (x_2-1)^2, \quad \text{subject to } \begin{cases}x_2 - x_1^2 \ge 0\\x_1 + x_2 \le 2\end{cases}\end{split}\]</div>
+<p>We can reformulate the optimization problem with the standard form:</p>
+<ul class="simple">
+<li><p>the objective function: <span class="math notranslate nohighlight">\(f(x) = (x_1-2)^2 + (x_2-1)^2\)</span></p></li>
+<li><p>decision variables: <span class="math notranslate nohighlight">\(x = (x_1, x_2)\)</span></p></li>
+<li><p>constraints: <span class="math notranslate nohighlight">\(g_1(x) = x_2 - x_1^2 \ge 0\)</span>, <span class="math notranslate nohighlight">\(g_2(x) = x_1 + x_2 \le 2\)</span></p></li>
+</ul>
 </section>
-</div><!-- 
+</div><p>The following code snippet shows the feasible region of the optimization problem.</p>
+<!-- 
 ````{tab-set}
 ```{tab-item} Tab 1 title
 My first tab
