@@ -12,8 +12,6 @@ kernelspec:
 
 # Line Search Methods
 
-Optimization algorithms are widely used in machine learning, statistics, and other fields. The goal of optimization is to find the minimum of a function. In this chapter, we will introduce the line search methods, which are the most important part of optimization algorithms.
-
 ## Step Length
 
 Each iteration of line search methods requires a step length $\alpha_k$ and a search direction $p_k$ to be computed, the update is
@@ -97,7 +95,7 @@ Another popular choice of the inexact line search is the **Goldstein Conditions*
 
 $$f(x_k) + c \alpha_k \nabla f_k^T p_k \le f(x_k + \alpha_k p_k) \leq f(x_k) + (1 - c) \alpha_k \nabla f_k^T p_k$$
 
-with $0 < c < \frac{1}{2}$. The second inequality is the **sufficient decrease condition** and the first inequality is the control of step length from being too short. In comparison with Wolfe condition, one disadvantage of Goldstein condition is that the first inequality of the condition might exclude all minimizers of $\phi(\alpha)$. However, usually it is not a fatal problem as long as the objective decreases in the direction of convergence. As a short conclusion, the Goldstein and Wolfe conditions have quite similar convergence theories. Compared to the Wolfe conditions, the Goldstein conditions are often used in Newton-type methods but are not well-suited for quasi-Newton methods that maintain a positive definite Hessian approximation. 
+with $0 < c < \frac{1}{2}$. The second inequality is the **sufficient decrease condition** and the first inequality is the control of step length from being too short. In comparison with Wolfe condition, one disadvantage of Goldstein condition is that the first inequality of the condition might exclude all minimizers of $\phi(\alpha)$. However, usually it is not a fatal problem as long as the objective decreases in the direction of convergence. As a short conclusion, the Goldstein and Wolfe conditions have quite similar convergence theories. Compared to the Wolfe conditions, the Goldstein conditions are often used in Newton-type methods but are not well-suited for quasi-Newton methods that maintain a positive definite Hessian approximation.
 
 ### Backtracking Line Search
 
