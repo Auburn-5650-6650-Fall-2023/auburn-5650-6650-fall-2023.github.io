@@ -6,9 +6,6 @@ root: preface
 options:  # The options key will be applied to all chapters, but not sub-sections
   numbered: true
 parts:
-  - caption: Preface
-    chapters: 
-    - file: preface
   - caption: Lecture notes
     chapters:
     - file: LineSearch
