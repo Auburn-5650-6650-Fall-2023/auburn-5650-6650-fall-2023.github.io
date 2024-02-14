@@ -7,25 +7,11 @@ This course involves both basic optimization theory and programming. The prerequ
 - Linear Differential Equations (2650)
 - Topics in Linear Algebra (2660)
 
-The default programming language for this class is ``Python``, the other script languages such as ``MATLAB``,  ``R``, ``Julia`` are also supported. 
 
 ```{note}
-Here is a note!
+The default programming language for this class is ``Python``, the other script languages such as ``MATLAB``,  ``R``, ``Julia`` are also supported. 
 ```
-
-````{card} Card 1 title
-
-Card header 1
-^^^
-Card body 1
-+++
-Card footer 1
-````
-
-```{dropdown} Here's my dropdown
-And here's my dropdown content
-```
-
+<!-- 
 ````{tab-set}
 ```{tab-item} Tab 1 title
 My first tab
@@ -56,4 +42,4 @@ C
 D
 :::
 
-::::
+:::: -->
