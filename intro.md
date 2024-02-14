@@ -1,8 +1,10 @@
-# Welcome to Math 5650/6650: Nonlinear Optimization 
+# Intro to Nonlinear Optimization 
 
-This website hosts the course material for Math 5650/6650: **Nonlinear Optimization**. The class will cover basic optimization knowledge from the book written by Jorge Nocedal and Stephen Wright, ``Numerical Optimization``, 2nd Edition. The book contains many typos, so be cautious when reading. Please note, this course will not cover the linear programming part (Ch. 13, 14) of the book.
+This repository hosts the course material for Math 5650/6650: **Nonlinear Optimization**. The class will cover first half of the book written by Jorge Nocedal and Stephen Wright, *Numerical Optimization*, 2nd Edition. 
 
+This course involves both basic optimization theory and programming. The prerequisites for the theory part are 
 
+- Linear Differential Equations (2650)
+- Topics in Linear Algebra (2660)
 
-```{tableofcontents}
-```
+The default programming language for this class is ``Python``, the other script languages such as ``MATLAB``,  ``R``, ``Julia`` are also acceptable. 

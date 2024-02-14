@@ -4,18 +4,21 @@
 format: jb-book
 root: intro
 options:  # The options key will be applied to all chapters, but not sub-sections
-  numbered: False
-chapters:
-- file: Syllabus
-- file: LineSearch
-- file: TrustRegion
-- file: ConjugateGradient
-- file: QuasiNewton
-- file: LeastSquares
-- file: QuadraticProgramming
-- file: AugmentLagrange
-- file: EvolutionAlgorithm
-- file: Subgradient
-- file: Proximal
-- file: ExtendedTopics
-- file: Projects
+  numbered: true
+parts:
+  - caption: Lecture notes
+    chapters:
+    - file: LineSearch
+    - file: TrustRegion
+    - file: ConjugateGradient
+    - file: QuasiNewton
+    - file: LeastSquares
+    - file: QuadraticProgramming
+    - file: AugmentLagrange
+    - file: EvolutionAlgorithm
+    - file: Subgradient
+    - file: Proximal
+    - file: ExtendedTopics
+  - caption: Projects
+    chapters:
+    - file: Projects

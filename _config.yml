@@ -5,7 +5,7 @@
 
 #######################################################################################
 # Book settings
-title                       : Lecture Notes on Optimization  # The title of the book. Will be placed in the left navbar.
+title                       : Introduction to Nonlinear Optimization  # The title of the book. Will be placed in the left navbar.
 author                      : Yimin Zhong  # The author of the book
 copyright                   : "2024"  # Copyright year to be placed in the footer
 logo                        : logo.png  # A path to the book logo
@@ -38,5 +38,8 @@ html:
   use_repository_button: true
 
 sphinx:
+  config:
+      latex_toplevel_sectioning: 'part'
   extra_extensions:
     - sphinx_proof
+    - sphinx_multitoc_numbering
