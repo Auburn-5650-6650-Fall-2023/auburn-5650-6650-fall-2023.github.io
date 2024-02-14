@@ -84,6 +84,25 @@ plt.fill_between(x, y2, y1, where=y2>y1, color='grey', alpha=0.5)
 plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
 ```
 
+### Continuous vs. Discrete Optimization
+
+Some optimization problems have special requirements on the decision variables. For example, the decision variables are required to be integers, then the optimization problem is called **discrete optimization**. Otherwise, the optimization problem is called **continuous optimization**.
+
+The discrete optimization problems are usually more difficult to solve than continuous optimization problems. The discrete optimization problems are widely used in combinatorial optimization, such as the traveling salesman problem, the knapsack problem, and the assignment problem.
+
+### Unconstrained vs. Constrained Optimization
+
+Optimization problems can be classified into two categories: **unconstrained optimization** and **constrained optimization**.
+
+- **Unconstrained optimization**: the optimization problem does not have any constraints or it is safe to ignore the constraints. Sometimes constrained optimization problems can be converted into unconstrained optimization problems by using the Lagrange multiplier method.
+
+- **Constrained optimization**: the optimization problem has constraints, for instance, $g_i(x) \le 0$, $h_j(x) = 0$. The constraints can be linear or nonlinear, equality or inequality.
+
+### Global vs. Local Optimization
+
+Most fast optimization algorithms can only find a local minimum, which is not necessarily the global minimum. The global optimization problem is usually more difficult to solve than the local optimization problem. The global optimization problem is also called the **global optimization**.
+
+One special case of the global optimization problem is the **convex optimization** problem, whose local minimums are also global minimums. The convex optimization problem is usually easier to solve than the general optimization problem.
 <!-- 
 ````{tab-set}
 ```{tab-item} Tab 1 title
