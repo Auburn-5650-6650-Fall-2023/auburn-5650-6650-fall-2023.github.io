@@ -7,7 +7,8 @@ options:  # The options key will be applied to all chapters, but not sub-section
   numbered: true
 parts:
   - caption: Preface
-    chapters: preface
+    chapters: 
+    - file: preface
   - caption: Lecture notes
     chapters:
     - file: LineSearch
