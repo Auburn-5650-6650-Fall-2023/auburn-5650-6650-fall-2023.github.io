@@ -12,6 +12,8 @@ kernelspec:
 
 # Line Search Methods
 
+Optimization algorithms are widely used in machine learning, statistics, and other fields. The goal of optimization is to find the minimum of a function. In this chapter, we will introduce the line search methods, which are the most important part of optimization algorithms.
+
 ## Step Length
 
 Each iteration of line search methods requires a step length $\alpha_k$ and a search direction $p_k$ to be computed, the update is
@@ -21,7 +23,6 @@ $$x_{k+1} = x_k + \alpha_k p_k.$$
 Once the search direction $p_k$ is computed, the step length $\alpha_k$ is then computed to reduce the objective function $f$. Usually, $\alpha_k$ should be compromised between the reduction of $f$ and the computational cost of computing $\alpha_k$. Ideally, the best choice is the so-called ``exact line search'' which finds the optimal $\alpha_k$ that minimizes the following single-variable function $\phi(\cdot)$ by
 
 $$\phi(\alpha) := f(x_k + \alpha p_k),\quad \alpha > 0.$$
-
 
 ```{code-cell} ipython3
 :tags: [hide-output]
