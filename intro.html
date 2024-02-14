@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Before you start &#8212; Introduction to Nonlinear Optimization</title>
+    <title>Introduction of Optimization &#8212; Introduction to Nonlinear Optimization</title>
   
   
   
@@ -68,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Line Search Methods" href="LineSearch.html" />
+    <link rel="next" title="Before you start" href="preface.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -166,11 +166,15 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    Before you start
+                    Introduction of Optimization
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lecture notes</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preface</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="preface.html">Before you start</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Lecture notes</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="LineSearch.html">Line Search Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="TrustRegion.html">Trust Region Methods</a></li>
@@ -372,7 +376,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Before you start</h1>
+    <h1>Introduction of Optimization</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -388,6 +392,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-vs-local-optimization">Global vs. Local Optimization</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization-algorithms">Optimization Algorithms</a></li>
 </ul>
             </nav>
         </div>
@@ -399,21 +404,11 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="before-you-start">
-<h1>Before you start<a class="headerlink" href="#before-you-start" title="Permalink to this heading">#</a></h1>
-<p>This repository hosts the course material for Math 5650/6650: <strong>Nonlinear Optimization</strong>. The class will use the textbook written by Jorge Nocedal and Stephen Wright, <em>Numerical Optimization</em>, 2nd Edition.</p>
-<p>This course involves both basic optimization theory and programming. The prerequisites for the theory part are</p>
-<ul class="simple">
-<li><p>Linear Differential Equations (2650)</p></li>
-<li><p>Topics in Linear Algebra (2660)</p></li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The default programming language for this class is <code class="docutils literal notranslate"><span class="pre">Python</span></code>, the other script languages such as <code class="docutils literal notranslate"><span class="pre">MATLAB</span></code>,  <code class="docutils literal notranslate"><span class="pre">R</span></code>, <code class="docutils literal notranslate"><span class="pre">Julia</span></code> are also supported.</p>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-of-optimization">
+<h1>Introduction of Optimization<a class="headerlink" href="#introduction-of-optimization" title="Permalink to this heading">#</a></h1>
+<p>The optimization serves as an important tool for decision making, resource allocation, and many other applications. Optimization algorithms are widely used in machine learning, statistics, and other fields.</p>
 <section id="formulation-of-optimization-problems">
 <h2>Formulation of Optimization Problems<a class="headerlink" href="#formulation-of-optimization-problems" title="Permalink to this heading">#</a></h2>
-<p>The optimization serves as an important tool for decision making, resource allocation, and many other applications. Optimization algorithms are widely used in machine learning, statistics, and other fields.</p>
 <p>An optimization problem can be formulated as follows:</p>
 <ul class="simple">
 <li><p>an objective function: <span class="math notranslate nohighlight">\(f(x)\)</span>, which is meant to be maximized or minimized</p></li>
@@ -468,7 +463,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f83a05bce80&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f4ac8818f40&gt;
 </pre></div>
 </div>
 <img alt="_images/7bf519f3c084dfde70bfee3d09d98f11f09579133e71c728937b66c02b297573.png" src="_images/7bf519f3c084dfde70bfee3d09d98f11f09579133e71c728937b66c02b297573.png" />
@@ -491,39 +486,14 @@ document.write(`
 <h3>Global vs. Local Optimization<a class="headerlink" href="#global-vs-local-optimization" title="Permalink to this heading">#</a></h3>
 <p>Most fast optimization algorithms can only find a local minimum, which is not necessarily the global minimum. The global optimization problem is usually more difficult to solve than the local optimization problem. The global optimization problem is also called the <strong>global optimization</strong>.</p>
 <p>One special case of the global optimization problem is the <strong>convex optimization</strong> problem, whose local minimums are also global minimums. The convex optimization problem is usually easier to solve than the general optimization problem.</p>
-<!-- 
-````{tab-set}
-```{tab-item} Tab 1 title
-My first tab
-```
-
-```{tab-item} Tab 2 title
-My second tab with `some code`!
-```
-````
-
-::::{grid}
-:gutter: 2
-
-:::{grid-item}
-:outline:
-A
-:::
-:::{grid-item}
-:outline:
-B
-:::
-:::{grid-item}
-:outline:
-C
-:::
-:::{grid-item}
-:outline:
-D
-:::
-
-:::: --></section>
 </section>
+</section>
+<section id="optimization-algorithms">
+<h2>Optimization Algorithms<a class="headerlink" href="#optimization-algorithms" title="Permalink to this heading">#</a></h2>
+<p>Most optimization algorithms are <strong>iterative algorithms</strong>, which means they start from an initial point and then generate a sequence of points that converge to the optimal solution. The sequence of points is called the <strong>iterative sequence</strong>.</p>
+</section>
+<div class="toctree-wrapper compound">
+</div>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
@@ -561,11 +531,11 @@ D
                   
 <div class="prev-next-area">
     <a class="right-next"
-       href="LineSearch.html"
+       href="preface.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Line Search Methods</p>
+        <p class="prev-next-title">Before you start</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -590,6 +560,7 @@ D
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-vs-local-optimization">Global vs. Local Optimization</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization-algorithms">Optimization Algorithms</a></li>
 </ul>
   </nav></div>
 

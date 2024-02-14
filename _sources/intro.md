@@ -10,23 +10,11 @@ kernelspec:
   name: python3
 ---
 
-
-# Before you start
-
-This repository hosts the course material for Math 5650/6650: **Nonlinear Optimization**. The class will use the textbook written by Jorge Nocedal and Stephen Wright, *Numerical Optimization*, 2nd Edition.
-
-This course involves both basic optimization theory and programming. The prerequisites for the theory part are
-
-- Linear Differential Equations (2650)
-- Topics in Linear Algebra (2660)
-
-```{note}
-The default programming language for this class is ``Python``, the other script languages such as ``MATLAB``,  ``R``, ``Julia`` are also supported. 
-```
-
-## Formulation of Optimization Problems
+# Introduction of Optimization
 
 The optimization serves as an important tool for decision making, resource allocation, and many other applications. Optimization algorithms are widely used in machine learning, statistics, and other fields.
+
+## Formulation of Optimization Problems
 
 An optimization problem can be formulated as follows:
 
@@ -103,35 +91,7 @@ Optimization problems can be classified into two categories: **unconstrained opt
 Most fast optimization algorithms can only find a local minimum, which is not necessarily the global minimum. The global optimization problem is usually more difficult to solve than the local optimization problem. The global optimization problem is also called the **global optimization**.
 
 One special case of the global optimization problem is the **convex optimization** problem, whose local minimums are also global minimums. The convex optimization problem is usually easier to solve than the general optimization problem.
-<!-- 
-````{tab-set}
-```{tab-item} Tab 1 title
-My first tab
-```
 
-```{tab-item} Tab 2 title
-My second tab with `some code`!
-```
-````
+## Optimization Algorithms
 
-::::{grid}
-:gutter: 2
-
-:::{grid-item}
-:outline:
-A
-:::
-:::{grid-item}
-:outline:
-B
-:::
-:::{grid-item}
-:outline:
-C
-:::
-:::{grid-item}
-:outline:
-D
-:::
-
-:::: -->
+Most optimization algorithms are **iterative algorithms**, which means they start from an initial point and then generate a sequence of points that converge to the optimal solution. The sequence of points is called the **iterative sequence**.
