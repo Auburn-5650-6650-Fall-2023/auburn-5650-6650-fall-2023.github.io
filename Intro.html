@@ -337,7 +337,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-vs-local-optimization">Global vs. Local Optimization</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization-algorithms">Optimization Algorithms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization-algorithms">Optimization Algorithms</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convexity">Convexity</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -408,7 +411,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f20583ccf40&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fab605c9e80&gt;
 </pre></div>
 </div>
 <img alt="_images/7bf519f3c084dfde70bfee3d09d98f11f09579133e71c728937b66c02b297573.png" src="_images/7bf519f3c084dfde70bfee3d09d98f11f09579133e71c728937b66c02b297573.png" />
@@ -416,7 +419,7 @@ document.write(`
 </div>
 <section id="continuous-vs-discrete-optimization">
 <h3>Continuous vs. Discrete Optimization<a class="headerlink" href="#continuous-vs-discrete-optimization" title="Permalink to this heading">#</a></h3>
-<p>Some optimization problems have special requirements on the decision variables. For example, the decision variables are required to be integers, then the optimization problem is called <strong>discrete optimization</strong>. Otherwise, the optimization problem is called <strong>continuous optimization</strong>.</p>
+<p>Some optimization problems have special requirements on the decision variables. For example, the decision variables are required to be integers or discrete values, then the optimization problem is called <strong>discrete optimization</strong>. Otherwise, the optimization problem is called <strong>continuous optimization</strong>.</p>
 <p>The discrete optimization problems are usually more difficult to solve than continuous optimization problems. The discrete optimization problems are widely used in combinatorial optimization, such as the traveling salesman problem, the knapsack problem, and the assignment problem.</p>
 </section>
 <section id="unconstrained-vs-constrained-optimization">
@@ -435,7 +438,22 @@ document.write(`
 </section>
 <section id="optimization-algorithms">
 <h2>Optimization Algorithms<a class="headerlink" href="#optimization-algorithms" title="Permalink to this heading">#</a></h2>
-<p>Most optimization algorithms are <strong>iterative algorithms</strong>, which means they start from an initial point and then generate a sequence of points that converge to the optimal solution. The sequence of points is called the <strong>iterative sequence</strong>.</p>
+<p>Most optimization algorithms are <strong>iterative algorithms</strong>, which means they start from an initial point <span class="math notranslate nohighlight">\(x_0\in\mathbb{R}^n\)</span> and then generate a sequence of points <span class="math notranslate nohighlight">\(x_k\)</span>, <span class="math notranslate nohighlight">\(k=1,2,\cdots\)</span> that converge to the optimal solution. The sequence of points is called the <strong>iterative sequence</strong>.</p>
+<p>Ideally, a perfect algorithm should have the following properties:</p>
+<ul class="simple">
+<li><p>Robustness: the algorithm should be able to handle different types of optimization problems, such as convex, non-convex, smooth, non-smooth, etc.</p></li>
+<li><p>Efficiency: the algorithm should be able to find the optimal solution within a reasonable amount of time.</p></li>
+<li><p>Accuracy: the algorithm should be able to find the optimal solution with high precision.</p></li>
+</ul>
+<p>These properties are usually conflicting with each other. For example, a rapidly convergent algorithm for nonlinear programming may require too much computation resources on large problems. On the other hand, a robust algorithm may also be the slowest one. The trade-off between these properties is a key issue in the design of optimization algorithms.</p>
+<section id="convexity">
+<h3>Convexity<a class="headerlink" href="#convexity" title="Permalink to this heading">#</a></h3>
+<p>The <strong>convexity</strong> plays an important role in optimization. Usually it implies some benign properties of the optimization problem. The <strong>convexity</strong> applies to both sets and functions.</p>
+<ul class="simple">
+<li><p>For sets, a set <span class="math notranslate nohighlight">\(C\subseteq\mathbb{R}^n\)</span> is called <strong>convex</strong> if the line segment between any two points in <span class="math notranslate nohighlight">\(C\)</span> is also in <span class="math notranslate nohighlight">\(C\)</span>. Mathematically, it means $<span class="math notranslate nohighlight">\(\lambda x + (1-\lambda)y\in C, \quad \forall x, y\in C,\quad \lambda\in[0,1].\)</span>$</p></li>
+<li><p>For functions, a function <span class="math notranslate nohighlight">\(f(x)\)</span> is called <strong>convex</strong> if its domain is a convex set and the following inequality holds $<span class="math notranslate nohighlight">\(f(\lambda x + (1-\lambda)y) \le \lambda f(x) + (1-\lambda)f(y), \quad \forall x, y\in\text{dom}f,\quad \lambda\in[0,1].\)</span>$</p></li>
+</ul>
+</section>
 </section>
 </section>
 
@@ -508,7 +526,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-vs-local-optimization">Global vs. Local Optimization</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization-algorithms">Optimization Algorithms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization-algorithms">Optimization Algorithms</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convexity">Convexity</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
