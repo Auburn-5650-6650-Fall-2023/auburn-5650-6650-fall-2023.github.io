@@ -366,16 +366,17 @@ document.write(`
 <p>The standard form of an optimization problem is</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\min_{x \in \mathbb{R}^n} f(x),\quad \text{subject to } \begin{cases}g_i(x) \le 0, \quad i = 1, \ldots, m\\h_j(x) = 0, \quad j = 1, \ldots, p\end{cases}\end{split}\]</div>
+<p>The objective is to find the optimal decision variable <span class="math notranslate nohighlight">\(x^*\)</span> that minimizes the objective function <span class="math notranslate nohighlight">\(f(x)\)</span> while satisfying all the constraints.</p>
 <div class="proof definition admonition" id="def-feasible-solution">
 <p class="admonition-title"><span class="caption-number">Definition 1 </span></p>
 <section class="definition-content" id="proof-content">
 <p>A <strong>feasible solution</strong> is a solution that satisfies all the constraints, otherwise, the solution is called <strong>infeasible</strong>.</p>
 <p>The <strong>feasible region</strong> of an optimization problem is the set of all feasible solutions. The feasible region is also called the <strong>feasible set</strong>.</p>
 </section>
-</div><div class="proof example admonition" id="ex-feasible-region">
+</div><p>In the following, we provide an example to illustrate the concept of the feasible region.</p>
+<div class="proof example admonition" id="ex-feasible-region">
 <p class="admonition-title"><span class="caption-number">Example 1 </span></p>
 <section class="example-content" id="proof-content">
-<p>Consider the following optimization problem:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\min_{x \in \mathbb{R}^2} f(x) = (x_1-2)^2 + (x_2-1)^2, \quad \text{subject to } \begin{cases}x_2 - x_1^2 \ge 0\\x_1 + x_2 \le 2\end{cases}\end{split}\]</div>
 <p>We can reformulate the optimization problem with the standard form:</p>
@@ -411,7 +412,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fab605c9e80&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fb2a89cbf10&gt;
 </pre></div>
 </div>
 <img alt="_images/7bf519f3c084dfde70bfee3d09d98f11f09579133e71c728937b66c02b297573.png" src="_images/7bf519f3c084dfde70bfee3d09d98f11f09579133e71c728937b66c02b297573.png" />
@@ -451,7 +452,8 @@ document.write(`
 <p>The <strong>convexity</strong> plays an important role in optimization. Usually it implies some benign properties of the optimization problem. The <strong>convexity</strong> applies to both sets and functions.</p>
 <ul class="simple">
 <li><p>For sets, a set <span class="math notranslate nohighlight">\(C\subseteq\mathbb{R}^n\)</span> is called <strong>convex</strong> if the line segment between any two points in <span class="math notranslate nohighlight">\(C\)</span> is also in <span class="math notranslate nohighlight">\(C\)</span>. Mathematically, it means $<span class="math notranslate nohighlight">\(\lambda x + (1-\lambda)y\in C, \quad \forall x, y\in C,\quad \lambda\in[0,1].\)</span>$</p></li>
-<li><p>For functions, a function <span class="math notranslate nohighlight">\(f(x)\)</span> is called <strong>convex</strong> if its domain is a convex set and the following inequality holds $<span class="math notranslate nohighlight">\(f(\lambda x + (1-\lambda)y) \le \lambda f(x) + (1-\lambda)f(y), \quad \forall x, y\in\text{dom}f,\quad \lambda\in[0,1].\)</span>$</p></li>
+<li><p>For functions, a function <span class="math notranslate nohighlight">\(f(x)\)</span> is called <strong>convex</strong> if its domain is a convex set and the following inequality holds
+$<span class="math notranslate nohighlight">\(f(\lambda x + (1-\lambda)y) \le \lambda f(x) + (1-\lambda)f(y), \quad \forall x, y\in\text{dom}f,\quad \lambda\in[0,1].\)</span>$</p></li>
 </ul>
 </section>
 </section>
