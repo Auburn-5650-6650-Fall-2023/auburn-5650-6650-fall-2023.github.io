@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Welcome to Math 5650/6650: Nonlinear Optimization &#8212; Lecture Notes on Optimization</title>
+    <title>Intro to Nonlinear Optimization &#8212; Introduction to Nonlinear Optimization</title>
   
   
   
@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Syllabus" href="Syllabus.html" />
+    <link rel="next" title="Line Search Methods (Week 1)" href="LineSearch.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -153,8 +153,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="Lecture Notes on Optimization - Home"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Lecture Notes on Optimization - Home"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-light" alt="Introduction to Nonlinear Optimization - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Introduction to Nonlinear Optimization - Home"/>`);</script>
   
   
 </a></div>
@@ -164,12 +164,12 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    Welcome to Math 5650/6650: Nonlinear Optimization
+                    Intro to Nonlinear Optimization
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Syllabus.html">Syllabus</a></li>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lecture notes</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="LineSearch.html">Line Search Methods (Week 1)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="TrustRegion.html">Trust Region Method (Week 2)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ConjugateGradient.html">Conjugate Gradient Methods (Week 3)</a></li>
@@ -181,6 +181,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="Subgradient.html">Subgradient Methods (Week 11)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Proximal.html">Mirror Descent and Proximal Methods (Week 12)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ExtendedTopics.html">Extended Topics (Week 13)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Projects</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Projects.html">Final Group Project Presentation (Week 14)</a></li>
 </ul>
 
@@ -365,7 +368,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Welcome to Math 5650/6650: Nonlinear Optimization</h1>
+    <h1>Intro to Nonlinear Optimization</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -379,25 +382,18 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="welcome-to-math-5650-6650-nonlinear-optimization">
-<h1>Welcome to Math 5650/6650: Nonlinear Optimization<a class="headerlink" href="#welcome-to-math-5650-6650-nonlinear-optimization" title="Permalink to this heading">#</a></h1>
-<p>This website hosts the course material for Math 5650/6650: <strong>Nonlinear Optimization</strong>. The class will cover basic optimization knowledge from the book written by Jorge Nocedal and Stephen Wright, <code class="docutils literal notranslate"><span class="pre">Numerical</span> <span class="pre">Optimization</span></code>, 2nd Edition. The book contains many typos, so be cautious when reading. Please note, this course will not cover the linear programming part (Ch. 13, 14) of the book.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Syllabus.html">Syllabus</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LineSearch.html">Line Search Methods (Week 1)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="TrustRegion.html">Trust Region Method (Week 2)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ConjugateGradient.html">Conjugate Gradient Methods (Week 3)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="QuasiNewton.html">Quasi-Newton Methods (Week 4)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LeastSquares.html">Least Squares Problems (Week 5)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="QuadraticProgramming.html">Quadratic Programming (Week 6 - 7)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="AugmentLagrange.html">Augmented Lagrangian Methods (Week 8 - 9)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EvolutionAlgorithm.html">Evolution Algorithms (Week 10)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Subgradient.html">Subgradient Methods (Week 11)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Proximal.html">Mirror Descent and Proximal Methods (Week 12)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ExtendedTopics.html">Extended Topics (Week 13)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Projects.html">Final Group Project Presentation (Week 14)</a></li>
+  <section class="tex2jax_ignore mathjax_ignore" id="intro-to-nonlinear-optimization">
+<h1>Intro to Nonlinear Optimization<a class="headerlink" href="#intro-to-nonlinear-optimization" title="Permalink to this heading">#</a></h1>
+<p>This repository hosts the course material for Math 5650/6650: <strong>Nonlinear Optimization</strong>. The class will cover first half of the book written by Jorge Nocedal and Stephen Wright, <em>Numerical Optimization</em>, 2nd Edition.</p>
+<p>This course involves both basic optimization theory and programming. The prerequisites for the theory part are</p>
+<ul class="simple">
+<li><p>Linear Differential Equations (2650)</p></li>
+<li><p>Topics in Linear Algebra (2660)</p></li>
 </ul>
+<p>The default programming language for this class is <code class="docutils literal notranslate"><span class="pre">Python</span></code>, the other script languages such as <code class="docutils literal notranslate"><span class="pre">MATLAB</span></code>,  <code class="docutils literal notranslate"><span class="pre">R</span></code>, <code class="docutils literal notranslate"><span class="pre">Julia</span></code> are also acceptable.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
 </div>
 </section>
 
@@ -432,11 +428,11 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="right-next"
-       href="Syllabus.html"
+       href="LineSearch.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Syllabus</p>
+        <p class="prev-next-title">Line Search Methods (Week 1)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
