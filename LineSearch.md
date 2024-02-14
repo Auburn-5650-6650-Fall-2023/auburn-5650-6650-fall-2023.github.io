@@ -22,15 +22,9 @@ Once the search direction $p_k$ is computed, the step length $\alpha_k$ is then 
 
 $$\phi(\alpha) := f(x_k + \alpha p_k),\quad \alpha > 0.$$
 
-```{code-cell} ipython3
-:tags: [scroll-output]
-
-for ii in range(40):
-    print(f"this is output line {ii}")
-```
 
 ```{code-cell} ipython3
-:tags: [hide-input, hide-output]
+:tags: [hide-output]
 
 from scipy.optimize import minimize_scalar
 
@@ -76,7 +70,7 @@ The proof is omitted here.
 ````
 
 ```{code-cell} ipython3
-:tags: [hide-input, hide-output]
+:tags: [hide-output]
 from scipy.optimize import line_search
 
 """
