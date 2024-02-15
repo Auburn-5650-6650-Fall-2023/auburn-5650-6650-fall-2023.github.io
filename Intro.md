@@ -209,4 +209,8 @@ To decide how to move from $x_k$ to $x_{k+1}$, the algorithms usually require th
   
   The line search strategy is widely used in the optimization algorithms, such as the steepest descent method, the Newton method, the quasi-Newton method, etc.
   
-- **Trust region**: the trust region method does not optimize the objective function directly. Instead, it considers an approximated yet simple model $m_k$ of the objective function, whose behavior near the current point $x_k$ is similar to the objective function.
+- **Trust region**: the trust region method does not optimize the objective function directly. Instead, it considers an approximated yet simple model $m_k$ of the objective function, whose behavior near the current point $x_k$ is similar to the objective function. Since the model $m_k$ may not be a good approximation of $f$ away from $x_k$, we need to restrict the search for a minimizer of $m_k$ to a small region around $x_k$. Mathematically, we are optimizing the following problem
+
+  $$\min_{p_k} m_k(x_k + p_k), \quad \text{subject to } \|p_k\|\le \Delta_k,$$
+
+  where $\Delta_k$ is called the **trust region radius**. The trust region method is widely used in the optimization algorithms, such as the trust region Newton method, the trust region conjugate gradient method, etc.
