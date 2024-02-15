@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Introduction of Optimization &#8212; Introduction to Nonlinear Optimization</title>
   
@@ -19,56 +18,52 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css?v=4c969af8" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
-    <script src="_static/tabs.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=7f8ff830"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="_static/tabs.js?v=3ee01567"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"tex": {"macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Intro';</script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Line Search Methods" href="LineSearch.html" />
@@ -82,10 +77,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -126,11 +120,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -164,7 +161,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Lecture notes</span></p>
 <ul class="current nav bd-sidenav">
@@ -351,13 +359,13 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduction-of-optimization">
-<h1>Introduction of Optimization<a class="headerlink" href="#introduction-of-optimization" title="Permalink to this heading">#</a></h1>
+<h1>Introduction of Optimization<a class="headerlink" href="#introduction-of-optimization" title="Link to this heading">#</a></h1>
 <p>The optimization serves as an important tool for decision making, resource allocation, and many other applications. Optimization algorithms are widely used in machine learning, statistics, and other fields.</p>
 <section id="formulation-of-optimization-problems">
-<h2>Formulation of Optimization Problems<a class="headerlink" href="#formulation-of-optimization-problems" title="Permalink to this heading">#</a></h2>
+<h2>Formulation of Optimization Problems<a class="headerlink" href="#formulation-of-optimization-problems" title="Link to this heading">#</a></h2>
 <p>An optimization problem can be formulated as follows:</p>
 <ul class="simple">
 <li><p>an objective function: <span class="math notranslate nohighlight">\(f(x)\)</span>, which is meant to be maximized or minimized</p></li>
@@ -413,19 +421,19 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f51c4b0df10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f2704962e20&gt;
 </pre></div>
 </div>
-<img alt="_images/7bf519f3c084dfde70bfee3d09d98f11f09579133e71c728937b66c02b297573.png" src="_images/7bf519f3c084dfde70bfee3d09d98f11f09579133e71c728937b66c02b297573.png" />
+<img alt="_images/4fbd4785c8f46d899e6c6f409adae52b9a649215d6feb0ddf820a9bb6d9d328a.png" src="_images/4fbd4785c8f46d899e6c6f409adae52b9a649215d6feb0ddf820a9bb6d9d328a.png" />
 </div>
 </div>
 <section id="continuous-vs-discrete-optimization">
-<h3>Continuous vs. Discrete Optimization<a class="headerlink" href="#continuous-vs-discrete-optimization" title="Permalink to this heading">#</a></h3>
+<h3>Continuous vs. Discrete Optimization<a class="headerlink" href="#continuous-vs-discrete-optimization" title="Link to this heading">#</a></h3>
 <p>Some optimization problems have special requirements on the decision variables. For example, the decision variables are required to be integers or discrete values, then the optimization problem is called <strong>discrete optimization</strong>. Otherwise, the optimization problem is called <strong>continuous optimization</strong>.</p>
 <p>The discrete optimization problems are usually more difficult to solve than continuous optimization problems. The discrete optimization problems are widely used in combinatorial optimization, such as the traveling salesman problem, the knapsack problem, and the assignment problem.</p>
 </section>
 <section id="unconstrained-vs-constrained-optimization">
-<h3>Unconstrained vs. Constrained Optimization<a class="headerlink" href="#unconstrained-vs-constrained-optimization" title="Permalink to this heading">#</a></h3>
+<h3>Unconstrained vs. Constrained Optimization<a class="headerlink" href="#unconstrained-vs-constrained-optimization" title="Link to this heading">#</a></h3>
 <p>Optimization problems can be classified into two categories: <strong>unconstrained optimization</strong> and <strong>constrained optimization</strong>.</p>
 <ul class="simple">
 <li><p><strong>Unconstrained optimization</strong>: the optimization problem does not have any constraints or it is safe to ignore the constraints. Sometimes constrained optimization problems can be converted into unconstrained optimization problems by using the Lagrange multiplier method.</p></li>
@@ -433,13 +441,13 @@ document.write(`
 </ul>
 </section>
 <section id="global-vs-local-optimization">
-<h3>Global vs. Local Optimization<a class="headerlink" href="#global-vs-local-optimization" title="Permalink to this heading">#</a></h3>
+<h3>Global vs. Local Optimization<a class="headerlink" href="#global-vs-local-optimization" title="Link to this heading">#</a></h3>
 <p>Most fast optimization algorithms can only find a local minimum, which is not necessarily the global minimum. The global optimization problem is usually more difficult to solve than the local optimization problem. The global optimization problem is also called the <strong>global optimization</strong>.</p>
 <p>One special case of the global optimization problem is the <strong>convex optimization</strong> problem, whose local minimums are also global minimums. The convex optimization problem is usually easier to solve than the general optimization problem.</p>
 </section>
 </section>
 <section id="optimization-algorithms">
-<h2>Optimization Algorithms<a class="headerlink" href="#optimization-algorithms" title="Permalink to this heading">#</a></h2>
+<h2>Optimization Algorithms<a class="headerlink" href="#optimization-algorithms" title="Link to this heading">#</a></h2>
 <p>Most optimization algorithms are <strong>iterative algorithms</strong>, which means they start from an initial point <span class="math notranslate nohighlight">\(x_0\in\mathbb{R}^n\)</span> and then generate a sequence of points <span class="math notranslate nohighlight">\(x_k\)</span>, <span class="math notranslate nohighlight">\(k=1,2,\cdots\)</span> that converge to the optimal solution. The sequence of points is called the <strong>iterative sequence</strong>.</p>
 <p>Ideally, a perfect algorithm should have the following properties:</p>
 <ul class="simple">
@@ -449,7 +457,7 @@ document.write(`
 </ul>
 <p>These properties are usually conflicting with each other. For example, a rapidly convergent algorithm for nonlinear programming may require too much computation resources on large problems. On the other hand, a robust algorithm may also be the slowest one. The trade-off between these properties is a key issue in the design of optimization algorithms.</p>
 <section id="convexity">
-<h3>Convexity<a class="headerlink" href="#convexity" title="Permalink to this heading">#</a></h3>
+<h3>Convexity<a class="headerlink" href="#convexity" title="Link to this heading">#</a></h3>
 <p>The <strong>convexity</strong> plays an important role in optimization. Usually it implies some benign properties of the optimization problem. The <strong>convexity</strong> applies to both sets and functions.</p>
 <ul>
 <li><p>For sets, a set <span class="math notranslate nohighlight">\(C\subseteq\mathbb{R}^n\)</span> is called <strong>convex</strong> if the line segment between any two points in <span class="math notranslate nohighlight">\(C\)</span> is also in <span class="math notranslate nohighlight">\(C\)</span>. Mathematically, it means</p>
@@ -522,6 +530,7 @@ document.write(`
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
@@ -586,8 +595,8 @@ By Yimin Zhong
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>
