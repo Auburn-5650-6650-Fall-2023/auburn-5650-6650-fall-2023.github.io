@@ -12,7 +12,11 @@ kernelspec:
 
 # Line Search Methods
 
-## Descent Direction
+The search direction $p_k$ is a key component of line search algorithms. The search direction is a descent direction if it satisfies the following condition:
+
+$$\nabla f_k^T p_k < 0.$$
+
+The most natural search direction is the negative gradient direction $-\nabla f(x_k)$. There are other popular search directions, for instance, Newton direction, which will be discussed later.
 
 ## Step Length
 

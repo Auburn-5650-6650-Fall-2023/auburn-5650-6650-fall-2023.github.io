@@ -424,7 +424,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f56b40e9f70&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f17fcd1cfa0&gt;
 </pre></div>
 </div>
 <img alt="_images/4fbd4785c8f46d899e6c6f409adae52b9a649215d6feb0ddf820a9bb6d9d328a.png" src="_images/4fbd4785c8f46d899e6c6f409adae52b9a649215d6feb0ddf820a9bb6d9d328a.png" />
@@ -504,7 +504,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f56a06918b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f17fc0ccd60&gt;
 </pre></div>
 </div>
 <img alt="_images/5f051da6c9abf2d9014dbfdfa4abc36725e6313c616292295207cda44ceaa6c1.png" src="_images/5f051da6c9abf2d9014dbfdfa4abc36725e6313c616292295207cda44ceaa6c1.png" />
@@ -531,7 +531,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f56954006d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f17e20552e0&gt;
 </pre></div>
 </div>
 <img alt="_images/b23ef640ce15dba97b6036471797d3d96fa69c3e64afb2e85cf823a5d988ddde.png" src="_images/b23ef640ce15dba97b6036471797d3d96fa69c3e64afb2e85cf823a5d988ddde.png" />
@@ -569,7 +569,11 @@ document.write(`
 <p>Here <span class="math notranslate nohighlight">\(\alpha\)</span> is called the <strong>step length</strong>. The above minimization can be sometimes very expensive to arrive at the exact solution and it is also unnecessary to obtain such an exact solution in practice. The practical line search algorithm will generate a finite number of trial step lengths until it finds a satisfactory one.</p>
 <p>The line search strategy is widely used in the optimization algorithms, such as the steepest descent method, the Newton method, the quasi-Newton method, etc.</p>
 </li>
-<li><p><strong>Trust region</strong>: the trust region method does not optimize the objective function directly. Instead, it considers an approximated yet simple model <span class="math notranslate nohighlight">\(m_k\)</span> of the objective function, whose behavior near the current point <span class="math notranslate nohighlight">\(x_k\)</span> is similar to the objective function.</p></li>
+<li><p><strong>Trust region</strong>: the trust region method does not optimize the objective function directly. Instead, it considers an approximated yet simple model <span class="math notranslate nohighlight">\(m_k\)</span> of the objective function, whose behavior near the current point <span class="math notranslate nohighlight">\(x_k\)</span> is similar to the objective function. Since the model <span class="math notranslate nohighlight">\(m_k\)</span> may not be a good approximation of <span class="math notranslate nohighlight">\(f\)</span> away from <span class="math notranslate nohighlight">\(x_k\)</span>, we need to restrict the search for a minimizer of <span class="math notranslate nohighlight">\(m_k\)</span> to a small region around <span class="math notranslate nohighlight">\(x_k\)</span>. Mathematically, we are optimizing the following problem</p>
+<div class="math notranslate nohighlight">
+\[\min_{p_k} m_k(x_k + p_k), \quad \text{subject to } \|p_k\|\le \Delta_k,\]</div>
+<p>where <span class="math notranslate nohighlight">\(\Delta_k\)</span> is called the <strong>trust region radius</strong>. The trust region method is widely used in the optimization algorithms, such as the trust region Newton method, the trust region conjugate gradient method, etc.</p>
+</li>
 </ul>
 </section>
 </section>

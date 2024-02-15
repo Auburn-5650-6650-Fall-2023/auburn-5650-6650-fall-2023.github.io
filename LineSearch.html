@@ -340,7 +340,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descent-direction">Descent Direction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-length">Step Length</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wolfe-conditions">Wolfe Conditions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#goldstein-conditions">Goldstein Conditions</a></li>
@@ -373,9 +372,10 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="line-search-methods">
 <h1>Line Search Methods<a class="headerlink" href="#line-search-methods" title="Link to this heading">#</a></h1>
-<section id="descent-direction">
-<h2>Descent Direction<a class="headerlink" href="#descent-direction" title="Link to this heading">#</a></h2>
-</section>
+<p>The search direction <span class="math notranslate nohighlight">\(p_k\)</span> is a key component of line search algorithms. The search direction is a descent direction if it satisfies the following condition:</p>
+<div class="math notranslate nohighlight">
+\[\nabla f_k^T p_k &lt; 0.\]</div>
+<p>The most natural search direction is the negative gradient direction <span class="math notranslate nohighlight">\(-\nabla f(x_k)\)</span>. There are other popular search directions, for instance, Newton direction, which will be discussed later.</p>
 <section id="step-length">
 <h2>Step Length<a class="headerlink" href="#step-length" title="Link to this heading">#</a></h2>
 <p>Each iteration of line search methods requires a step length <span class="math notranslate nohighlight">\(\alpha_k\)</span> and a search direction <span class="math notranslate nohighlight">\(p_k\)</span> to be computed, the update is</p>
@@ -572,7 +572,6 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descent-direction">Descent Direction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-length">Step Length</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wolfe-conditions">Wolfe Conditions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#goldstein-conditions">Goldstein Conditions</a></li>
