@@ -1,3 +1,15 @@
-# Augmented Lagrangian Methods (Week 8 - 9)
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
+# Augmented Lagrangian Methods
 
 ## Exercises

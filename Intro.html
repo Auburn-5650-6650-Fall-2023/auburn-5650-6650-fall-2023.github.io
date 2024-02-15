@@ -179,19 +179,19 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction of Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="LineSearch.html">Line Search Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="TrustRegion.html">Trust Region Methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ConjugateGradient.html">Conjugate Gradient Methods (Week 3)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="QuasiNewton.html">Quasi-Newton Methods (Week 4)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="LeastSquares.html">Least Squares Problems (Week 5)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="QuadraticProgramming.html">Quadratic Programming (Week 6 - 7)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="AugmentLagrange.html">Augmented Lagrangian Methods (Week 8 - 9)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="EvolutionAlgorithm.html">Evolution Algorithms (Week 10)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Subgradient.html">Subgradient Methods (Week 11)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Proximal.html">Mirror Descent and Proximal Methods (Week 12)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ExtendedTopics.html">Extended Topics (Week 13)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ConjugateGradient.html">Conjugate Gradient Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="QuasiNewton.html">Quasi-Newton Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="LeastSquares.html">Least Squares Problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="QuadraticProgramming.html">Quadratic Programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AugmentLagrange.html">Augmented Lagrangian Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EvolutionAlgorithm.html">Evolution Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Subgradient.html">Subgradient Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Proximal.html">Mirror Descent and Proximal Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ExtendedTopics.html">Extended Topics</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Projects</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Projects.html">Final Group Project Presentation (Week 14)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Projects.html">Final Group Project Presentation</a></li>
 </ul>
 
     </div>
@@ -348,6 +348,9 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization-algorithms">Optimization Algorithms</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convexity">Convexity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamentals-of-unconstrained-optimization">Fundamentals of unconstrained optimization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-and-local-minimizer">Global and local minimizer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-optimization-algorithms">Overview of optimization algorithms</a></li>
 </ul>
 </li>
 </ul>
@@ -392,7 +395,7 @@ document.write(`
 <ul class="simple">
 <li><p>the objective function: <span class="math notranslate nohighlight">\(f(x) = (x_1-2)^2 + (x_2-1)^2\)</span></p></li>
 <li><p>decision variables: <span class="math notranslate nohighlight">\(x = (x_1, x_2)\)</span></p></li>
-<li><p>constraints: <span class="math notranslate nohighlight">\(g_1(x) = x_2 - x_1^2 \ge 0\)</span>, <span class="math notranslate nohighlight">\(g_2(x) = x_1 + x_2 \le 2\)</span></p></li>
+<li><p>constraints: <span class="math notranslate nohighlight">\(g_1(x) = x_1^2 - x_2 \le 0\)</span>, <span class="math notranslate nohighlight">\(g_2(x) = x_1 + x_2 \le 2\)</span></p></li>
 </ul>
 </section>
 </div><p>The following code snippet shows the feasible region of the optimization problem.</p>
@@ -421,7 +424,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f2704962e20&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f5a1012afa0&gt;
 </pre></div>
 </div>
 <img alt="_images/4fbd4785c8f46d899e6c6f409adae52b9a649215d6feb0ddf820a9bb6d9d328a.png" src="_images/4fbd4785c8f46d899e6c6f409adae52b9a649215d6feb0ddf820a9bb6d9d328a.png" />
@@ -469,6 +472,95 @@ document.write(`
 \[f(\lambda x + (1-\lambda)y) \le \lambda f(x) + (1-\lambda)f(y), \quad \forall x, y\in\text{dom}f,\quad \lambda\in[0,1].\]</div>
 </li>
 </ul>
+<p>A function <span class="math notranslate nohighlight">\(f\)</span> is called <strong>concave</strong> if <span class="math notranslate nohighlight">\(-f\)</span> is convex. A function <span class="math notranslate nohighlight">\(f\)</span> is called <strong>strictly convex</strong> if the inequality is strict.</p>
+<p>Convex programming is a special case of mathematical optimization in which</p>
+<ul class="simple">
+<li><p>the objective function is convex.</p></li>
+<li><p>the equality constraints are affine.</p></li>
+<li><p>the inequality constraints are convex.</p></li>
+</ul>
+</section>
+<section id="fundamentals-of-unconstrained-optimization">
+<h3>Fundamentals of unconstrained optimization<a class="headerlink" href="#fundamentals-of-unconstrained-optimization" title="Link to this heading">#</a></h3>
+<p>In unconstrained optimization, we minimize a function <span class="math notranslate nohighlight">\(f(x)\)</span> without any constraints. An typical optimization problem can be formulated as</p>
+<div class="math notranslate nohighlight">
+\[\min_{x\in\mathbb{R}^n} f(x),\]</div>
+<p>where <span class="math notranslate nohighlight">\(x\in\mathbb{R}^n\)</span> is the decision variable with <span class="math notranslate nohighlight">\(n\ge 1\)</span> and <span class="math notranslate nohighlight">\(f:\mathbb{R}^n\to \mathbb{R}\)</span> is a <em>smooth</em> objective function.</p>
+<p>The following <strong>linear regression</strong> example illustrates an unconstrained optimization problem.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">timeit</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;^&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f59fc488df0&gt;
+</pre></div>
+</div>
+<img alt="_images/5f051da6c9abf2d9014dbfdfa4abc36725e6313c616292295207cda44ceaa6c1.png" src="_images/5f051da6c9abf2d9014dbfdfa4abc36725e6313c616292295207cda44ceaa6c1.png" />
+</div>
+</div>
+<p>The objective is to find the best linear fit of the data points. The linear regression problem can be formulated as a least square problem, which is an unconstrained optimization problem. The objective function is</p>
+<div class="math notranslate nohighlight">
+\[f(p_0,p_1) = \sum_{i=1}^N (p_0 x_i + p_1 - y_i)^2.\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">leastsq</span>
+
+<span class="k">def</span> <span class="nf">residual</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+    <span class="k">return</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span>
+
+<span class="n">p0</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">z_opt</span> <span class="o">=</span> <span class="n">leastsq</span><span class="p">(</span><span class="n">residual</span><span class="p">,</span> <span class="n">p0</span><span class="p">,</span> <span class="n">xtol</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span> <span class="n">ftol</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;^&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z_opt</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">z_opt</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Fitted line&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f59ee6d4550&gt;
+</pre></div>
+</div>
+<img alt="_images/b23ef640ce15dba97b6036471797d3d96fa69c3e64afb2e85cf823a5d988ddde.png" src="_images/b23ef640ce15dba97b6036471797d3d96fa69c3e64afb2e85cf823a5d988ddde.png" />
+</div>
+</div>
+</section>
+<section id="global-and-local-minimizer">
+<h3>Global and local minimizer<a class="headerlink" href="#global-and-local-minimizer" title="Link to this heading">#</a></h3>
+<p>The global and local minimizer are important concepts in optimization.</p>
+<ul class="simple">
+<li><p>A point <span class="math notranslate nohighlight">\(x^*\)</span> is called a <strong>global minimizer</strong> of <span class="math notranslate nohighlight">\(f(x)\)</span> if <span class="math notranslate nohighlight">\(f(x^*)\le f(x)\)</span> for all <span class="math notranslate nohighlight">\(x\in\mathbb{R}^n\)</span>.</p></li>
+<li><p>A point <span class="math notranslate nohighlight">\(x^*\)</span> is called a <strong>local minimizer</strong> of <span class="math notranslate nohighlight">\(f(x)\)</span> if there exists a <strong>neighborhood</strong> <span class="math notranslate nohighlight">\(N(x^*)\)</span> such that <span class="math notranslate nohighlight">\(f(x^*)\le f(x)\)</span> for all <span class="math notranslate nohighlight">\(x\in N(x^*)\)</span> with <span class="math notranslate nohighlight">\(x\ne x^*\)</span>.</p></li>
+</ul>
+<p>A function may have multiple local minimizers. It is usually difficult to locate the global minimizer, it is because the algorithms tend to be attracted to the local minimizers. Sometimes additional assumptions about <span class="math notranslate nohighlight">\(f\)</span> may help to locate the global minimizer.</p>
+<p>For twice differentiable functions, a necessary condition for a local minimizer is that the gradient is zero. The second derivative test can be used to determine whether a stationary point is a local minimizer or not.</p>
+<p>The sufficient condition for <span class="math notranslate nohighlight">\(x^*\)</span> to be a local minimizer is</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\nabla f(x^*)=0\)</span>, i.e., the first order necessary condition.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\nabla^2 f(x^*)\)</span> is positive definite, i.e., the second order sufficient condition.</p></li>
+</ul>
+<p>A strictly local minimizer may fail to satisfy the second order sufficient condition.</p>
+<div class="proof example admonition" id="ex-quadratic-function">
+<p class="admonition-title"><span class="caption-number">Example 2 </span></p>
+<section class="example-content" id="proof-content">
+<p>Consider the function <span class="math notranslate nohighlight">\(f(x) = x^4\)</span>. The first derivative is zero at <span class="math notranslate nohighlight">\(x=0\)</span>, but the second derivative is zero at <span class="math notranslate nohighlight">\(x=0\)</span>. The point <span class="math notranslate nohighlight">\(x=0\)</span> is a local minimizer but not a strict local minimizer.</p>
+</section>
+</div></section>
+<section id="overview-of-optimization-algorithms">
+<h3>Overview of optimization algorithms<a class="headerlink" href="#overview-of-optimization-algorithms" title="Link to this heading">#</a></h3>
 </section>
 </section>
 </section>
@@ -545,6 +637,9 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization-algorithms">Optimization Algorithms</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convexity">Convexity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamentals-of-unconstrained-optimization">Fundamentals of unconstrained optimization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-and-local-minimizer">Global and local minimizer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-optimization-algorithms">Overview of optimization algorithms</a></li>
 </ul>
 </li>
 </ul>
