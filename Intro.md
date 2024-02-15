@@ -46,7 +46,7 @@ We can reformulate the optimization problem with the standard form:
 
 - the objective function: $f(x) = (x_1-2)^2 + (x_2-1)^2$
 - decision variables: $x = (x_1, x_2)$
-- constraints: $g_1(x) = x_2 - x_1^2 \ge 0$, $g_2(x) = x_1 + x_2 \le 2$
+- constraints: $g_1(x) = x_1^2 - x_2 \le 0$, $g_2(x) = x_1 + x_2 \le 2$
 
 ````
 
@@ -118,3 +118,88 @@ The **convexity** plays an important role in optimization. Usually it implies so
 - For functions, a function $f(x)$ is called **convex** if its domain is a convex set and the following inequality holds
   
   $$f(\lambda x + (1-\lambda)y) \le \lambda f(x) + (1-\lambda)f(y), \quad \forall x, y\in\text{dom}f,\quad \lambda\in[0,1].$$
+
+A function $f$ is called **concave** if $-f$ is convex. A function $f$ is called **strictly convex** if the inequality is strict. 
+
+Convex programming is a special case of mathematical optimization in which 
+
+* the objective function is convex.
+* the equality constraints are affine.
+* the inequality constraints are convex.
+
+### Fundamentals of unconstrained optimization
+
+In unconstrained optimization, we minimize a function $f(x)$ without any constraints. An typical optimization problem can be formulated as
+
+$$\min_{x\in\mathbb{R}^n} f(x),$$
+
+where $x\in\mathbb{R}^n$ is the decision variable with $n\ge 1$ and $f:\mathbb{R}^n\to \mathbb{R}$ is a *smooth* objective function.
+
+The following **linear regression** example illustrates an unconstrained optimization problem.
+
+```{code-cell} ipython3
+:tags: []
+import numpy as np
+import matplotlib.pyplot as plt
+import timeit
+
+%matplotlib inline
+
+np.random.seed(0)
+N = 100
+x = np.random.rand(N)
+y = x + 0.5 * (2 * np.random.rand(N) - 1)
+plt.scatter(x, y, c='red', marker='^')
+```
+
+The objective is to find the best linear fit of the data points. The linear regression problem can be formulated as a least square problem, which is an unconstrained optimization problem. The objective function is
+
+$$f(p_0,p_1) = \sum_{i=1}^N (p_0 x_i + p_1 - y_i)^2.$$
+
+```{code-cell} ipython3
+:tags: []
+from scipy.optimize import leastsq
+
+def residual(p):
+    global x, y
+    return p[0] * x + p[1] - y
+
+p0 = [5, 5]
+z_opt = leastsq(residual, p0, xtol=1e-8, ftol=1e-8)
+
+plt.scatter(x, y, s = 20, c='red', marker='^', label='Data')
+plt.scatter(x, z_opt[0][0] * x + z_opt[0][1], s=20, c='b', marker='o', label='Fitted line')
+plt.legend(loc='best')
+```
+
+### Global and local minimizer
+
+The global and local minimizer are important concepts in optimization.
+
+- A point $x^*$ is called a **global minimizer** of $f(x)$ if $f(x^*)\le f(x)$ for all $x\in\mathbb{R}^n$.
+- A point $x^*$ is called a **local minimizer** of $f(x)$ if there exists a **neighborhood** $N(x^*)$ such that $f(x^*)\le f(x)$ for all $x\in N(x^*)$ with $x\ne x^*$.
+
+A function may have multiple local minimizers. It is usually difficult to locate the global minimizer, it is because the algorithms tend to be attracted to the local minimizers. Sometimes additional assumptions about $f$ may help to locate the global minimizer.
+
+For twice differentiable functions, a necessary condition for a local minimizer is that the gradient is zero. The second derivative test can be used to determine whether a stationary point is a local minimizer or not.
+
+The sufficient condition for $x^*$ to be a local minimizer is
+
+- $\nabla f(x^*)=0$, i.e., the first order necessary condition.
+- $\nabla^2 f(x^*)$ is positive definite, i.e., the second order sufficient condition.
+
+A strictly local minimizer may fail to satisfy the second order sufficient condition. 
+
+````{prf:example}
+:label: ex-quadratic-function
+
+Consider the function $f(x) = x^4$. The first derivative is zero at $x=0$, but the second derivative is zero at $x=0$. The point $x=0$ is a local minimizer but not a strict local minimizer.
+
+````
+
+
+
+
+
+
+### Overview of optimization algorithms
