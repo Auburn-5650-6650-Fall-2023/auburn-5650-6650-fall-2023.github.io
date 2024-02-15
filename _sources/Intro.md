@@ -197,13 +197,9 @@ Consider the function $f(x) = x^4$. The first derivative is zero at $x=0$, but t
 
 ````
 
-## Overview of optimization algorithms
-
-The optimization algorithms are *iterative*, which means they start from an initial point $x_0\in\mathbb{R}^n$ and then generate a sequence of points $x_k$, $k=1,2,\cdots$ that converge to the (possibly) optimal solution. To decide how to move from $x_k$ to $x_{k+1}$, the algorithms usually require the information of $f$ at earlier points.
-
 ### Two strategies: line search and trust region
 
-Here we introduce two classical strategies for optimization algorithms: **line search** and **trust region**.
+To decide how to move from $x_k$ to $x_{k+1}$, the algorithms usually require the information of $f$ at earlier points. Here we introduce two classical strategies for optimization algorithms: **line search** and **trust region**.
 
 - **Line search**: the line search strategy selects a direction $p_k$ and then searches along this direction from the current point to minimize the objective function. The distance to move is determined by the following one-dimensional optimization problem
 

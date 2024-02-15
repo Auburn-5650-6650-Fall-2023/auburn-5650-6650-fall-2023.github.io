@@ -350,9 +350,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convexity">Convexity</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamentals-of-unconstrained-optimization">Fundamentals of unconstrained optimization</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-and-local-minimizer">Global and local minimizer</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-optimization-algorithms">Overview of optimization algorithms</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-strategies-line-search-and-trust-region">Two strategies: line search and trust region</a></li>
 </ul>
 </li>
@@ -427,7 +424,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7faa07f2dfa0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f5280b2bfa0&gt;
 </pre></div>
 </div>
 <img alt="_images/4fbd4785c8f46d899e6c6f409adae52b9a649215d6feb0ddf820a9bb6d9d328a.png" src="_images/4fbd4785c8f46d899e6c6f409adae52b9a649215d6feb0ddf820a9bb6d9d328a.png" />
@@ -507,7 +504,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7faa0468dc10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f52818117c0&gt;
 </pre></div>
 </div>
 <img alt="_images/5f051da6c9abf2d9014dbfdfa4abc36725e6313c616292295207cda44ceaa6c1.png" src="_images/5f051da6c9abf2d9014dbfdfa4abc36725e6313c616292295207cda44ceaa6c1.png" />
@@ -534,7 +531,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fa9f92e67c0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f526ce7d310&gt;
 </pre></div>
 </div>
 <img alt="_images/b23ef640ce15dba97b6036471797d3d96fa69c3e64afb2e85cf823a5d988ddde.png" src="_images/b23ef640ce15dba97b6036471797d3d96fa69c3e64afb2e85cf823a5d988ddde.png" />
@@ -562,13 +559,9 @@ document.write(`
 <p>Consider the function <span class="math notranslate nohighlight">\(f(x) = x^4\)</span>. The first derivative is zero at <span class="math notranslate nohighlight">\(x=0\)</span>, but the second derivative is zero at <span class="math notranslate nohighlight">\(x=0\)</span>. The point <span class="math notranslate nohighlight">\(x=0\)</span> is a local minimizer but not a strict local minimizer.</p>
 </section>
 </div></section>
-</section>
-<section id="overview-of-optimization-algorithms">
-<h2>Overview of optimization algorithms<a class="headerlink" href="#overview-of-optimization-algorithms" title="Link to this heading">#</a></h2>
-<p>The optimization algorithms are <em>iterative</em>, which means they start from an initial point <span class="math notranslate nohighlight">\(x_0\in\mathbb{R}^n\)</span> and then generate a sequence of points <span class="math notranslate nohighlight">\(x_k\)</span>, <span class="math notranslate nohighlight">\(k=1,2,\cdots\)</span> that converge to the (possibly) optimal solution. To decide how to move from <span class="math notranslate nohighlight">\(x_k\)</span> to <span class="math notranslate nohighlight">\(x_{k+1}\)</span>, the algorithms usually require the information of <span class="math notranslate nohighlight">\(f\)</span> at earlier points.</p>
 <section id="two-strategies-line-search-and-trust-region">
 <h3>Two strategies: line search and trust region<a class="headerlink" href="#two-strategies-line-search-and-trust-region" title="Link to this heading">#</a></h3>
-<p>Here we introduce two classical strategies for optimization algorithms: <strong>line search</strong> and <strong>trust region</strong>.</p>
+<p>To decide how to move from <span class="math notranslate nohighlight">\(x_k\)</span> to <span class="math notranslate nohighlight">\(x_{k+1}\)</span>, the algorithms usually require the information of <span class="math notranslate nohighlight">\(f\)</span> at earlier points. Here we introduce two classical strategies for optimization algorithms: <strong>line search</strong> and <strong>trust region</strong>.</p>
 <ul>
 <li><p><strong>Line search</strong>: the line search strategy selects a direction <span class="math notranslate nohighlight">\(p_k\)</span> and then searches along this direction from the current point to minimize the objective function. The distance to move is determined by the following one-dimensional optimization problem</p>
 <div class="math notranslate nohighlight">
@@ -656,9 +649,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convexity">Convexity</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamentals-of-unconstrained-optimization">Fundamentals of unconstrained optimization</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-and-local-minimizer">Global and local minimizer</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-optimization-algorithms">Overview of optimization algorithms</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#two-strategies-line-search-and-trust-region">Two strategies: line search and trust region</a></li>
 </ul>
 </li>
