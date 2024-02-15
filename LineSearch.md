@@ -12,6 +12,8 @@ kernelspec:
 
 # Line Search Methods
 
+## Descent Direction
+
 ## Step Length
 
 Each iteration of line search methods requires a step length $\alpha_k$ and a search direction $p_k$ to be computed, the update is
