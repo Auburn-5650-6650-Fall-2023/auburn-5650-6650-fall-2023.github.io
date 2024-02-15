@@ -122,8 +122,6 @@ This strategy for terminating a line search is well suited for Newton methods bu
 
 ## Convergence
 
-The convergence of line search methods 
-
 ## Newton’s Method and Quasi-Newton Methods
 
 ## Stochastic Gradient Descent
