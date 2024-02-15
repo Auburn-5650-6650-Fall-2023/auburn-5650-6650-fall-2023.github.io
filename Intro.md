@@ -109,9 +109,9 @@ These properties are usually conflicting with each other. For example, a rapidly
 
 ### Convexity
 
-The **convexity** plays an important role in optimization. Usually it implies some benign properties of the optimization problem. The **convexity** applies to both sets and functions. 
+The **convexity** plays an important role in optimization. Usually it implies some benign properties of the optimization problem. The **convexity** applies to both sets and functions.
 
-- For sets, a set $C\subseteq\mathbb{R}^n$ is called **convex** if the line segment between any two points in $C$ is also in $C$. Mathematically, it means 
+- For sets, a set $C\subseteq\mathbb{R}^n$ is called **convex** if the line segment between any two points in $C$ is also in $C$. Mathematically, it means
   
   $$\lambda x + (1-\lambda)y\in C, \quad \forall x, y\in C,\quad \lambda\in[0,1].$$
 
@@ -119,13 +119,13 @@ The **convexity** plays an important role in optimization. Usually it implies so
   
   $$f(\lambda x + (1-\lambda)y) \le \lambda f(x) + (1-\lambda)f(y), \quad \forall x, y\in\text{dom}f,\quad \lambda\in[0,1].$$
 
-A function $f$ is called **concave** if $-f$ is convex. A function $f$ is called **strictly convex** if the inequality is strict. 
+A function $f$ is called **concave** if $-f$ is convex. A function $f$ is called **strictly convex** if the inequality is strict.
 
-Convex programming is a special case of mathematical optimization in which 
+Convex programming is a special case of mathematical optimization in which
 
-* the objective function is convex.
-* the equality constraints are affine.
-* the inequality constraints are convex.
+- the objective function is convex.
+- the equality constraints are affine.
+- the inequality constraints are convex.
 
 ### Fundamentals of unconstrained optimization
 
@@ -188,7 +188,7 @@ The sufficient condition for $x^*$ to be a local minimizer is
 - $\nabla f(x^*)=0$, i.e., the first order necessary condition.
 - $\nabla^2 f(x^*)$ is positive definite, i.e., the second order sufficient condition.
 
-A strictly local minimizer may fail to satisfy the second order sufficient condition. 
+A strictly local minimizer may fail to satisfy the second order sufficient condition.
 
 ````{prf:example}
 :label: ex-quadratic-function
@@ -197,9 +197,20 @@ Consider the function $f(x) = x^4$. The first derivative is zero at $x=0$, but t
 
 ````
 
+## Overview of optimization algorithms
 
+The optimization algorithms are *iterative*, which means they start from an initial point $x_0\in\mathbb{R}^n$ and then generate a sequence of points $x_k$, $k=1,2,\cdots$ that converge to the (possibly) optimal solution. To decide how to move from $x_k$ to $x_{k+1}$, the algorithms usually require the information of $f$ at earlier points.
 
+### Two strategies: line search and trust region
 
+Here we introduce two classical strategies for optimization algorithms: **line search** and **trust region**.
 
+- **Line search**: the line search strategy selects a direction $p_k$ and then searches along this direction from the current point to minimize the objective function. The distance to move is determined by the following one-dimensional optimization problem
 
-### Overview of optimization algorithms
+  $$\min_{\alpha>0} f(x_k + \alpha p_k).$$
+
+  Here $\alpha$ is called the **step length**. The above minimization can be sometimes very expensive to arrive at the exact solution and it is also unnecessary to obtain such an exact solution in practice. The practical line search algorithm will generate a finite number of trial step lengths until it finds a satisfactory one.
+  
+  The line search strategy is widely used in the optimization algorithms, such as the steepest descent method, the Newton method, the quasi-Newton method, etc.
+  
+- **Trust region**: the trust region method does not optimize the objective function directly. Instead, it considers an approximated yet simple model $m_k$ of the objective function, whose behavior near the current point $x_k$ is similar to the objective function.
