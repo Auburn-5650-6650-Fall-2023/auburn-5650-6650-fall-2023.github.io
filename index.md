@@ -1,8 +1,8 @@
 # Before you start
 
-This repository hosts the course material for Math 5650/6650: **Nonlinear Optimization** at Auburn University. The class will use the textbook written by Jorge Nocedal and Stephen Wright, *Numerical Optimization*, 2nd Edition.
+This repository hosts the course material for Math 5650/6650: **Nonlinear Optimization** at Auburn University. The course will use the textbook written by Jorge Nocedal and Stephen Wright, *Numerical Optimization*, 2nd Edition.
 
-This course involves both basic optimization theory and programming. The prerequisites for the theory part are
+Both basic optimization theory and programming are required. The prerequisites for the theory part are
 
 - Linear Differential Equations (2650)
 - Topics in Linear Algebra (2660)
